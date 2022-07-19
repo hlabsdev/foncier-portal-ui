@@ -1,0 +1,33 @@
+
+.back, .grid {
+  //height: 100gd;
+  //width: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  position:fixed;
+  padding:0;
+  margin:0;
+  //top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+}
+
+section {
+  position: fixed;
+  top: 25%;
+  bottom: 25%;
+  left: 25%;
+  right: 25%;
+  padding:0;
+  margin:0;
+  a {
+    justify-content: center;
+    //justify-self: center;
+    justify-items: center;
+    text-justify: inter-word;
+  }
+}
+

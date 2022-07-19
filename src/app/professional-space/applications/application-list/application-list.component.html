@@ -1,0 +1,16 @@
+<ngx-ui-loader [text]="preloaderMessage"></ngx-ui-loader>
+
+<div class="mx-5 my-5 align-self-auto">
+  <portal-table [tableConfig]="tableConfig!" (reloadTable)="reload()" [datas]="userApplications" (actions)="call($event)"
+    (selectRow)="onRowSelect($event)" (unselectRow)="onRowUnselect($event)" (selectedRow)="selectedRow($event)"
+    [cols]="cols">
+  </portal-table>
+</div>
+
+<app-application-state-modal
+  *ngIf="showStateDialog" [applicationDetails]="applicationDetails" (close)="closeStateDialog()">
+</app-application-state-modal>
+
+<app-application-document-form-modal
+  *ngIf="showDocumentDialog" [isFormEnabled]="isFormEnabled" [applicationDetails]="applicationDetails" (close)="closeDocumentDialog()">
+</app-application-document-form-modal>

@@ -1,0 +1,45 @@
+export class Identification {
+  uid?:string;
+  nicad?:string;
+  regionName?:string;
+  circleName?:string;
+  divisionName?:string;
+  districtName?:string;
+  sectionCode?:string;
+  parcelNumber?:string;
+  lotName?:string;
+  lotNumber?:string;
+  titleId?:string;
+  registryCode?:string;
+  titleNumber?:string;
+  issueDate?:string;
+  creationDate?:string;
+  measurementUnit?:string;
+  areaSize?:number;
+  delivranceDate?:string;
+  copiesNumber?:string;
+  duplicateNumber?:string;
+  constructor(obj: any = {}) {
+    this.uid=obj.uid
+    this.nicad=obj.nicad
+    this.regionName=obj.regionName;
+    this.circleName=obj.circleName;
+    this.divisionName=obj.divisionName;
+    this.districtName=obj.districtName;
+    this.sectionCode=obj.sectionCode;
+    this.parcelNumber=obj.parcelNumber;
+    this.creationDate=obj.creationDate;
+    this.lotName=obj.lotName;
+    this.lotNumber=obj.lotNumber;
+    this.titleId=obj.titleId;
+    this.registryCode=obj.registryCode;
+    this.titleNumber=obj.titleNumber;
+    this.issueDate=obj.issueDate;
+    this.measurementUnit=obj.measurementUnit;
+    this.areaSize=obj.areaSize;
+    this.delivranceDate=obj.delivranceDate;
+    this.copiesNumber=obj.copiesNumber;
+    this.duplicateNumber=obj.duplicateNumber;
+    
+  }
+}

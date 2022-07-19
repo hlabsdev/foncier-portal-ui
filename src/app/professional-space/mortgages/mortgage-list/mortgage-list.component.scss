@@ -1,0 +1,58 @@
+.morgage-panel{
+    padding: 3%;
+}
+.formMortgage{
+    padding-left: 5%;
+}
+.fullLine{
+    width: 100%;
+    margin-bottom: 5px;
+}
+.p-datatable .p-datatable-tbody>tr {
+    background-color: white !important;
+    color: black !important;
+  }
+
+
+// .fix-position {
+//   top: -2px;
+//   position: relative;
+// }
+
+
+// p-table {
+//   border-radius: 10px;
+//   //border: black;
+// }
+
+.table-title {
+  font-weight: bold !important;
+  padding-right: 10px;
+}
+
+// .add-btn {
+//   border-left: 1px dotted black;
+//   padding-left: 10px;
+// }
+
+/*.overflow-ellipsis {
+  text-overflow: ellipsis;
+  font-size: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+
+}*/
+
+
+
+@media screen and (max-width: 768px) {
+  .search-bar {
+    display: block;
+    margin-top: 10px;
+  }
+}
+.prevent-text-overlap{
+  max-width: 250px !important;
+  overflow: auto !important;
+}

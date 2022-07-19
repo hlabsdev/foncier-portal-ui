@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-4 text-center" id="not-found">
+      <img [src]="notFoundImg" alt="404" style="fill:orange; ">
+      <h1 id="page">{{'MESSAGES.NOT_FOUND'| translate }}</h1>
+      <p class="mb-5" id="info">{{'MESSAGES.NOT_FOUND_INFO'| translate }}</p>
+      <a pRipple pButton class="btn-eland-second elevated" role="button"  (click)="goToHome()">{{'MESSAGES.GO_TO_HOME'| translate }}</a>
+    </div>
+  </div>
+</div>

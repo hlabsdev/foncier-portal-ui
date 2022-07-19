@@ -1,0 +1,84 @@
+
+.navbar {
+  background-color: #583a14;
+  background-image: linear-gradient(200deg, #583a14 0%, #c6a531 100%);
+}
+p-menubar {
+  background-color: #583a14;
+  background-image: linear-gradient(200deg, #583a14 0%, #c6a531 100%);
+}
+
+.p-menuitem-icon, .pi:before  {
+  color: rgba(255, 255, 255, 0.8);
+  &:hover {
+    color: rgba(0, 0, 0, 0.8);
+  }
+}
+.pi:before  {
+  color: rgba(255, 255, 255, 0.8);
+  &:hover {
+    color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+li.user, .user {
+  border: 1px rgba(187, 159, 124, 0.20);
+  border-radius: 8px;
+  text-decoration: white;
+  background-color: rgba(187, 159, 124, 0.1);
+  font-size: 16px;
+  opacity: 70;
+  elevation: below;
+
+  &:hover {
+    opacity: 50%;
+  }
+}
+
+li.menu, .menu {
+  border: 1px rgba(198, 165, 49, 0.7);
+  border-radius: 8px;
+  //margin: 0px 3px;
+  text-decoration: white;
+  alignment: center;
+  background-color: rgba(173, 144, 107, 0.15);
+  font-size: 16px;
+  opacity: 70;
+  //elevation: below;
+  &:hover {
+    opacity: 80%;
+  }
+}
+
+a.notif {
+  position: relative;
+  display: block;
+  height: 25px;
+  width: 25px;
+  alignment: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-decoration: none;
+  margin: 5px;
+  padding: 5px;
+}
+.count {
+  position: absolute;
+  left: 10px;
+  text-align: center;
+  text-align-all: center;
+  bottom: 10px;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  border: red solid;
+  background-color: red;
+  color: #fff;
+}
+
+//
+//p-sidebar {
+//  border-color: rgba(198,165,49,0.51);
+//  //border-color: #c6a531;
+//  background-image:linear-gradient(200deg, rgba(88, 58, 20, 0.5) 0%, rgba(198, 165, 49, 0.5) 100%)
+//}

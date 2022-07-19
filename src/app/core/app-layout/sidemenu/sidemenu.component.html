@@ -1,0 +1,55 @@
+<div class="overflow-y-auto">
+  <div pRipple class="p-2 flex align-items-center justify-content-between text-800 cursor-pointer" pStyleClass="@next"
+       enterClass="hidden" enterActiveClass="slidedown" leaveToClass="hidden" leaveActiveClass="slideup">
+    <span class="font-medium" style="color:black;"><strong>{{ processName }}</strong></span>
+    <!-- <i class="pi pi-chevron-down"></i> -->
+  </div>
+  <ul class="p-0 m-0" *ngFor="let tab of tabs">
+    <li
+      [ngClass]="{'activeStep': !tab.status, 'backgroundApplicationStepDone': tab.status, 'colorTextActive': !tab.status, 'textApplicationStepDone': tab.status }">
+      <div pRipple
+           class="  p-3 flex align-items-center justify-content-between text-600 cursor-pointer"
+           pStyleClass="@next" enterClass="hidden" enterActiveClass="slidedown" leaveToClass="hidden"
+           leaveActiveClass="slideup">
+
+             <span class="font-medium"
+                   [ngClass]="{ 'colorTextActive': !tab.status, 'textApplicationStepDone': tab.status }">
+
+             <span
+               [ngClass]="{ 'stepNumberInactive': tab.status, 'stepNumberActive': !tab.status }"
+               class="stepNumber">
+               {{tab.id}}
+             </span>
+               {{tab.name}}  <i *ngIf="tab.stepApplicationDone == 3" class="pi pi-check" style="position: absolute; right: 3%"></i>
+             </span>
+
+      </div>
+
+      <!-- <i class="pi pi-chevron-down"></i> -->
+
+    </li>
+    <ul class="p-0 m-0 overflow-hidden" *ngIf="!isDocumentComponentLoaded">
+      <li [ngClass]="{'activeLinkNavigate': step.componentState}" *ngFor="let step of tab.steps"
+          style="margin-left: 10%">
+        <a
+          pRipple
+          class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors ">
+            <span class="font-medium" [ngClass]="{'activeLinkNavigate': step.componentState}">
+              {{step.title}}
+            </span>
+          <i *ngIf="step.componentState"
+             class="pi pi-arrow-right activeLinkNavigate"
+             style="margin-left: 10%; position: absolute; right: 3%"></i>
+          <i *ngIf="step.stepDone == 1"
+             class="pi pi-check"
+             style="position: absolute; right: 3%"
+          ></i>
+        </a>
+      </li>
+
+    </ul>
+
+  </ul>
+
+
+</div>

@@ -1,0 +1,62 @@
+<section class="login-page">
+
+  <div class="row username pt-4 pb-4">
+    <ngx-ui-loader></ngx-ui-loader>
+  </div>
+    <!-- Login  -->
+    <section class="main main-login" style="margin-top: -48px;">
+      <div class="global-form login-form">
+        <div class="copy-block">
+         <div class="title-header">
+            <a href="https://sogematech.com/en/lamp" target="_blank" rel="noopener">
+              <i class="icon icon-go-eland"></i>
+            </a>
+            <p>{{'LOGIN.TITLE_HEADER' | translate}}</p>
+          </div>
+          <div class="message" *ngIf="errorMessage">
+            <p>{{'LOGIN.ERROR' | translate}}</p>
+          </div>
+        </div>
+
+        <form>
+          <div class="row username pt-4 pb-4">
+            <div class="col-12">
+              <input type="text" name="username" placeholder="{{'LOGIN.USERNAME' | translate}}" [(ngModel)]="username" [disabled]="loading" />
+            </div>
+          </div>
+          <div class="row password pb-4">
+            <div class="col-12">
+              <input type="{{showPassword ? '' : 'password'}}" name="password" placeholder="{{'LOGIN.PASSWORD' | translate}}" [(ngModel)]="password" [disabled]="loading" autocomplete="on" />
+              <i class="fa fa-eye" (click)="showPassword = true" *ngIf="!showPassword"></i>
+              <i class="fa fa-eye-slash" (click)="showPassword = false" *ngIf="showPassword"></i>
+            </div>
+          </div>
+          <div class="row forgot-password">
+            <div class="col-12">
+              <a routerLink="/lost-password">
+                <p>{{'LOGIN.FORGOT_PASSWORD' | translate}}</p>
+              </a>
+            </div>
+          </div>
+
+          <div class="row button-login pb-4">
+            <div class="col-12">
+              <div class="button" (click)="submit()" *ngIf="!loading">{{'LOGIN.LOGIN' | translate}}
+                <i class="icon icon-sign-in-eland"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="row to-register">
+            <div class="col-12">
+              <a routerLink="/register">
+                <p>{{'LOGIN.TO_REGISTER' | translate}}</p>
+              </a>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </section>
+  </section>
+  <section class="footer"></section>

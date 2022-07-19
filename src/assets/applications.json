@@ -1,0 +1,117 @@
+[
+  {
+    "uuid": "e3515877-c38c-4e09-8e6a-1ef0666526df",
+    "username": "administrateur",
+    "processInstanceId": "process00113251",
+    "creationDate": "2022-06-09T00:00:00",
+    "lastUpdateDate": "2022-03-24T00:00:00",
+    "applicationReceptionDate": null,
+    "archived": false,
+    "applicantName": "Adama Dieng BA",
+    "status": "completed",
+    "rejectionReason": null,
+    "applicationNumber": 0,
+    "application": {
+      "uuid": "41a3c0ad-9fb7-4456-b43f-172b105dd0ca",
+      "code": "app",
+      "name": "Inscription des faits ou conventions",
+      "function": "Inscription des droits au livre foncier",
+      "requisitionRequired": false,
+      "publiclyAvailable": true,
+      "processId": "portal_process",
+      "domain": "conservation"
+    }
+  },
+  {
+    "uuid": "5b61a58e-2976-460a-9642-b3725d55e6a7",
+    "username": "administrateur",
+    "processInstanceId": "process0011251",
+    "creationDate": "2022-06-09T00:00:00",
+    "lastUpdateDate": "2022-03-24T00:00:00",
+    "applicationReceptionDate": null,
+    "archived": false,
+    "applicantName": "Yondaime",
+    "status": "rejected",
+    "rejectionReason": null,
+    "applicationNumber": 0,
+    "application": {
+      "uuid": "41a3c0ad-9fb7-4456-b43f-172b105dd0ca",
+      "code": "app",
+      "name": "Inscription des faits ou conventions",
+      "function": "Inscription des droits au livre foncier",
+      "requisitionRequired": false,
+      "publiclyAvailable": true,
+      "processId": "portal_process",
+      "domain": "conservation"
+    }
+  },
+  {
+    "uuid": "f3e16826-1f4d-4288-895c-6cfafd49a1b8",
+    "username": "administrateur",
+    "processInstanceId": "process001132351",
+    "creationDate": "2022-06-09T00:00:00",
+    "lastUpdateDate": "2022-03-24T00:00:00",
+    "applicationReceptionDate": null,
+    "archived": false,
+    "applicantName": "Ashirama Senju",
+    "status": "pending",
+    "rejectionReason": null,
+    "applicationNumber": 0,
+    "application": {
+      "uuid": "41a3c0ad-9fb7-4456-b43f-172b105dd0ca",
+      "code": "app",
+      "name": "Inscription des faits ou conventions",
+      "function": "Inscription des droits au livre foncier",
+      "requisitionRequired": false,
+      "publiclyAvailable": true,
+      "processId": "portal_process",
+      "domain": "conservation"
+    }
+  },
+  {
+    "uuid": "a4c5f90d-c8bc-438e-8a42-37f85fb9bdf8",
+    "username": "administrateur",
+    "processInstanceId": "process0011323531",
+    "creationDate": "2022-06-09T00:00:00",
+    "lastUpdateDate": "2022-03-24T00:00:00",
+    "applicationReceptionDate": null,
+    "archived": false,
+    "applicantName": "Tobirama Senju",
+    "status": "validated",
+    "rejectionReason": null,
+    "applicationNumber": 0,
+    "application": {
+      "uuid": "41a3c0ad-9fb7-4456-b43f-172b105dd0ca",
+      "code": "app",
+      "name": "Inscription des faits ou conventions",
+      "function": "Inscription des droits au livre foncier",
+      "requisitionRequired": false,
+      "publiclyAvailable": true,
+      "processId": "portal_process",
+      "domain": "conservation"
+    }
+  },
+  {
+    "uuid": "7d297108-3149-4d67-a347-404b2d7ffd2a",
+    "username": "administrateur",
+    "processInstanceId": "process00113235331",
+    "creationDate": "2022-06-09T00:00:00",
+    "lastUpdateDate": "2022-03-24T00:00:00",
+    "applicationReceptionDate": null,
+    "archived": false,
+    "applicantName": "Naruto Uzumaki",
+    "status": "validated",
+    "rejectionReason": null,
+    "applicationNumber": 0,
+    "application": {
+      "uuid": "58d58c3e-3c18-4e32-ba44-62663604d1d9",
+      "code": "app2",
+      "name": "Morcellement de titres fonciers",
+      "function": "Réunion et division de titres fonciers ",
+      "requisitionRequired": false,
+      "publiclyAvailable": true,
+      "processId": "portal_process",
+      "domain": "conservation"
+    }
+  }
+]

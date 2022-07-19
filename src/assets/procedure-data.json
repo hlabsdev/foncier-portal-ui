@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Inscription des faits ou convention ayant pour objet la constitution",
+      "role": "1. Inscription des droits au livre foncier",
+      "domain": "Domaines"
+    },
+    {
+      "id": 5,
+      "name": "Inscription des faits ou convention ayant pour objet la constitution",
+      "role": "2. Inscription des droits au livre foncier 2",
+      "domain": "Domaines"
+    },
+    {
+      "id": 2,
+      "name": "Morcellements de titres fonciers",
+      "role": "3. Réunion et division de titres fonciers",
+      "domain": "Conservation fonciere"
+    },
+    {
+      "id": 3,
+      "name": "Délivrance d'état de droits réels",
+      "role": "4. Délivrance de renseignement et de duplicata",
+      "domain": "Cadastre"
+    },
+    {
+      "id": 4,
+      "name": "Bail ordinaire",
+      "role": "2. Gestion de domaine privé immobilier de l'Etat",
+      "domain": "Domaines"
+    }
+  ]
+}

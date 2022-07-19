@@ -1,0 +1,110 @@
+
+<portal-dialog
+  [config]="dialogConfig"
+  (cancel)="cancel()"
+  (close)="close.emit()"
+  (save)="submit()">
+
+  <ng-template #content>
+    <form [formGroup]="registerForm" (ngSubmit)="save()">
+    <div class="row">
+      <div class="form-group col-12 mb-0">
+        <label for="formFile" class="form-label">{{ 'DOCUMENT.INDIVIDUAL_NAME' | translate }} <span
+          style="color: red;">*</span> </label>
+        <input type="text" class="form-control" formControlName="individualName"
+               [(ngModel)]="documentSourceDetails!.individualName" aria-describedby="inputGroupFileAddon04"
+               [ngClass]="{ 'is-invalid': submitted! && f['individualName'].errors! }">
+        <div *ngIf="submitted! && f['individualName'].errors!" class="alert alert-danger">
+          <div>{{ 'ERROR.REQUIRED' | translate }} </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-6 mb-0">
+        <label for="formFile" class="form-label">{{ 'DOCUMENT.POSITION_NAME' | translate }}</label>
+        <input type="text" class="form-control" formControlName="postName"
+               [(ngModel)]="documentSourceDetails!.postName" aria-describedby="inputGroupFileAddon04">
+      </div>
+      <div class="form-group col-6 mb-0">
+        <label for="formFile" class="form-label">{{ 'DOCUMENT.ORGANISATION_NAME' | translate }}</label>
+        <input type="text" class="form-control" formControlName="organizationName"
+               [(ngModel)]="documentSourceDetails.organizationName" aria-describedby="inputGroupFileAddon04">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-12 mb-0">
+        <label for="formFile" class="form-label">{{ 'HEADER.ROLE' | translate }} <span
+          style="color: red;">*</span></label>
+        <p-dropdown [options]="roles" [(ngModel)]="role" formControlName="role" optionLabel="value" [filter]="true"
+                    filterBy="value" [showClear]="true" placeholder="{{'MESSAGES.SELECTION' | translate}}"
+                    [style]="{'width': '100%'}" [ngClass]="{ 'is-invalid': submitted! && f['role'].errors! }">
+          <ng-template pTemplate="selectedItem">
+            <div class="country-item country-item-value" *ngIf="role">
+              <div>{{role.value}}</div>
+            </div>
+          </ng-template>
+          <ng-template let-role pTemplate="item">
+            <div class="country-item">
+              <div>{{role.value}}</div>
+            </div>
+          </ng-template>
+        </p-dropdown>
+        <div *ngIf="submitted! && f['role'].errors!" class="alert alert-danger">
+          <div>{{ 'ERROR.REQUIRED' | translate }} </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-12 mb-0">
+        <label for="formFile" class="form-label">{{ 'HEADER.ADDRESS' | translate }} </label>
+        <input type="text" class="form-control" formControlName="address"
+               [(ngModel)]="documentSourceDetails!.address" aria-describedby="inputGroupFileAddon04">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-6 mb-0">
+        <label for="formFile" class="form-label">{{ 'DOCUMENT.INSTRUCTION_CONTACT' | translate }}</label>
+        <input type="text" class="form-control" [(ngModel)]="documentSourceDetails!.contactInstruction"
+               formControlName="contactInstruction" aria-describedby="inputGroupFileAddon04">
+      </div>
+      <div class="form-group col-6 mb-0">
+        <label for="formFile" class="form-label">{{ 'DOCUMENT.ONLINE_RESOURCE' | translate }}</label>
+        <input type="text" class="form-control" formControlName="onlineRessource"
+               [(ngModel)]="documentSourceDetails!.onlineRessource" aria-describedby="inputGroupFileAddon04">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-6 mb-0">
+        <label for="formFile" class="form-label">{{ 'DOCUMENT.SERVICE_HOUR' | translate }}</label>
+        <p-calendar [(ngModel)]="documentSourceDetails!.serviceHour" formControlName="serviceHour" [timeOnly]="true"
+                    inputId="timeonly" [style]="{'width': '100%'}"></p-calendar>
+      </div>
+      <div class="form-group col-6 mb-0">
+        <label for="formFile" class="form-label">{{ 'HEADER.PHONE' | translate }}</label><br />
+        <p-inputNumber [(ngModel)]="documentSourceDetails!.phone" formControlName="phone" inputId="integeronly"
+                       [useGrouping]="false" [minlength]="9" [maxlength]="9">
+        </p-inputNumber>
+        <!--Validation numéro tel éventuellement à faire-->
+        <!--ngx-intl-tel-input [cssClass]="'custom'"  [preferredCountries]="preferredCountries"
+          [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+          [searchCountryField]="[ SearchCountryField.Iso2, SearchCountryField.Name ]" [selectFirstCountry]="false"
+          [selectedCountryISO]="CountryISO.India" [maxLength]="15" [phoneValidation]="true" aria-describedby="inputGroupFileAddon04"
+          [separateDialCode]="true" [numberFormat]="PhoneNumberFormat.National" name="phone"
+          formControlName="phone" [ngClass]="{ 'is-invalid': submitted! && f['phone'].errors! }">
+        </ngx-intl-tel-input-->
+      </div>
+    </div>
+  </form>
+  </ng-template>
+
+  <!--For when you need more than one step (Multi-step-form)-->
+  <!--
+  <ng-template #content>
+    <ng-template #tab let-tab let-index="index">
+      <ng-container *ngIf="index === 0">
+        FORM HERE
+      </ng-container>
+    </ng-template>
+  </ng-template>
+  -->
+</portal-dialog>

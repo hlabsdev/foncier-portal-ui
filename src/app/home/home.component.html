@@ -1,0 +1,10 @@
+<div class="back" [style]="{'background-image': 'url('+backgroundImg+')'}">
+  <div class="container me-auto ql-expandeds text-center">
+    <section>
+      <img [src]="sgfLogo" alt="Image" class="mt-5">
+      <div class="text-6xl text-primary font-bold text-white mb-5">{{ 'HOME.WELCOME' | translate }}</div>
+      <a pButton pRipple class="btn-eland-edit elevated my-3 mx-3 text-100 py-3" label="{{ 'HOME.PROFESSIONAL_SPACE' | translate | uppercase }}" role="button" (click)="navigateProfessional()"></a>
+      <a pButton pRipple class="btn-eland-edit elevated my-3 mx-3 text-100 py-3" label="{{ 'HOME.PUBLIC_SPACE' | translate | uppercase }}" role="button" (click)="navigatePublic()"></a>
+    </section>
+  </div>
+</div>

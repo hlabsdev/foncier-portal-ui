@@ -1,0 +1,151 @@
+
+<!--View Form start-->
+<ng-template #viewForm>
+<!--  <div *ngIf="typeAction==='view'">-->
+  <div>
+    <div id="outerContainer">
+      <div class="pdf-container" *ngIf="documentDetails.extension === 'pdf'">
+        <pdf-viewer [src]="source" [rotation]="0" [original-size]="false" [show-all]="true" [fit-to-page]="false"
+                    [zoom]="1" [zoom-scale]="'page-width'" [stick-to-page]="false" [render-text]="true"
+                    [external-link-target]="'blank'" [autoresize]="true" [show-borders]="false"
+                    style="width: 100%; height: 800px;"></pdf-viewer>
+      </div>
+      <div class="container"
+           *ngIf="documentDetails.extension === 'png' || documentDetails.extension === 'jpg' || documentDetails.extension === 'jpeg'">
+        <img [src]="source" style="width: 100%; " />
+      </div>
+    </div><hr>
+  </div>
+</ng-template>
+<!--View Form end-->
+
+<!--Update Form start-->
+<ng-template #updateForm>
+<!--  <div *ngIf="typeAction==='edit'">-->
+  <div>
+    <div class="row">
+      <div>
+        <h5>{{ 'DOCUMENT.TITLE' | translate }}</h5>
+        <p-fileUpload name="demo[]" [maxFileSize]="250000000" [multiple]=false [auto]="true" [customUpload]="true" accept=""
+                      (uploadHandler)="onUpload($event)" chooseLabel="{{'DOCUMENT.LOAD' | translate}}">
+          <ng-template pTemplate="content">
+            <div *ngIf="aff">
+              <span >{{filename}}</span>
+            </div>
+          </ng-template>
+        </p-fileUpload>
+      </div>
+    </div>
+    <form [formGroup]="registerForm" (ngSubmit)="goSave()">
+      <div class="row">
+        <div class="col-6 mb-0">
+          <label for="formFile" class="form-label">{{ 'DOCUMENT.PRINCIPAL_TYPE' | translate }} <span
+            style="color: red;">*</span></label>
+          <p-dropdown [options]="principalTypes" [(ngModel)]="principalType" formControlName="principalType" optionLabel="value" [filter]="true"
+                      filterBy="value" [showClear]="true" placeholder="{{'MESSAGES.SELECTION' | translate}}"
+                      [style]="{'width': '100%'}" [ngClass]="{ 'is-invalid': submitted! && f['principalType'].errors! }">
+            <ng-template pTemplate="selectedItem">
+              <div class="country-item country-item-value" *ngIf="principalType">
+                <div>{{principalType.value}}</div>
+              </div>
+            </ng-template>
+            <ng-template let-principalType pTemplate="item">
+              <div class="country-item">
+                <div>{{principalType.value}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+          <div *ngIf="submitted! && f['principalType'].errors!" class="alert alert-danger">
+            <div>{{ 'ERROR.REQUIRED' | translate }} </div>
+          </div>
+        </div>
+        <div class="col-6 mb-0">
+          <label for="formFile" class="form-label">{{ 'DOCUMENT.FILE_NAME' | translate }} <span
+            style="color: red;">*</span></label>
+          <p-dropdown [options]="files" [(ngModel)]="file" formControlName="file" optionLabel="value" [filter]="true"
+                      filterBy="value" [showClear]="true" placeholder="{{'MESSAGES.SELECTION' | translate}}"
+                      [style]="{'width': '100%'}" [ngClass]="{ 'is-invalid': submitted! && f['file'].errors! }">
+            <ng-template pTemplate="selectedItem">
+              <div class="country-item country-item-value" *ngIf="file">
+                <div>{{file.value}}</div>
+              </div>
+            </ng-template>
+            <ng-template let-file pTemplate="item">
+              <div class="country-item">
+                <div>{{file.value}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+          <div *ngIf="submitted! && f['file'].errors!" class="alert alert-danger">
+            <div>{{ 'ERROR.REQUIRED' | translate }} </div>
+          </div>
+        </div>
+        <div class="col-6 mb-0">
+          <label for="formFile" class="form-label">{{ 'DOCUMENT.SOURCE_TYPE' | translate }} <span
+            style="color: red;">*</span></label>
+          <p-dropdown [options]="sourceTypes" [(ngModel)]="sourceType" formControlName="sourceType" optionLabel="value" [filter]="true"
+                      filterBy="value" [showClear]="true" placeholder="{{'MESSAGES.SELECTION' | translate}}"
+                      [style]="{'width': '100%'}" [ngClass]="{ 'is-invalid': submitted! && f['sourceType'].errors! }">
+            <ng-template pTemplate="selectedItem">
+              <div class="country-item country-item-value" *ngIf="sourceType">
+                <div>{{sourceType.value}}</div>
+              </div>
+            </ng-template>
+            <ng-template let-sourceType pTemplate="item">
+              <div class="country-item">
+                <div>{{sourceType.value}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+          <div *ngIf="submitted! && f['sourceType'].errors!" class="alert alert-danger">
+            <div>{{ 'ERROR.REQUIRED' | translate }} </div>
+          </div>
+        </div>
+        <div class="col-6 mb-0">
+          <label for="dateformat" class="form-label">{{ 'DOCUMENT.SUBMISSION_DATE' | translate }} <span
+            style="color: red;">*</span></label>
+          <p-calendar dateFormat="dd-mm-yy" inputId="dateformat" [(ngModel)]="documentDetails.submissionDate" formControlName="submissionDate"
+                      [style]="{'width': '100%'}" [ngClass]="{ 'is-invalid': submitted! && f['submissionDate'].errors! }">
+          </p-calendar>
+          <div *ngIf="submitted! && f['submissionDate'].errors!" class="alert alert-danger">
+            <div>{{ 'ERROR.REQUIRED' | translate }} </div>
+          </div>
+        </div>
+        <div class="col-6 mb-0">
+          <label for="dateformat" class="form-label">{{ 'DOCUMENT.REGISTRATION_DATE' | translate
+            }}</label>
+          <p-calendar dateFormat="dd-mm-yy" inputId="dateformat" [(ngModel)]="documentDetails.registrationDate" formControlName="regitreDate"
+                      [style]="{'width': '100%'}"></p-calendar>
+        </div>
+        <div class="col-6 mb-0">
+          <label for="dateformat" class="form-label">{{ 'DOCUMENT.DATE_OF_ACCEPTATION' | translate
+            }}</label>
+          <p-calendar dateFormat="dd-mm-yy" inputId="dateformat" [(ngModel)]="documentDetails.acceptationDate" formControlName="acceptationDate"
+                      [style]="{'width': '100%'}"></p-calendar>
+        </div>
+      </div>
+      <div>
+        <!--div class="row">
+            <div class="col-8 mb-1">
+              <h5>{{ 'DOCUMENT.DOCUMENT_SOURCE' | translate }} <span style="color: red;">*</span></h5>
+            </div>
+            <div class="col-4 mb-1">
+              <p-button class="float-end" (onClick)="openDialog(documentSource)"
+                label="{{'COMMON.ACTIONS.ADD' | translate}}"
+                [style]="{'background-color': '#583A14', 'height': '50%'}"></p-button>
+            </div>
+          </div-->
+        <!--portal-table [tableConfig]="tableConfig!" [datas]="documentsSource" (actions)="call($event)"
+            [cols]="cols">
+          </portal-table-->
+      </div>
+    </form>
+  </div>
+</ng-template>
+<!--Update Form end-->
+
+<portal-dialog [config]="dialogConfig" (save)="submit()" (close)="close.emit()" (cancel)="goCancel()">
+  <ng-template #content>
+    <ng-container *ngTemplateOutlet="typeAction==='view'? viewForm:updateForm"></ng-container>
+  </ng-template>
+</portal-dialog>

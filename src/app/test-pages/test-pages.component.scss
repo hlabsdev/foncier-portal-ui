@@ -1,0 +1,409 @@
+@import "../../../src/assets/layout/css/portal-colors.scss";
+
+
+.register-page {
+
+  position: absolute;
+
+  top: 0;
+
+  right: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  background-image: url('../../../src/assets/img/home-background.png');
+
+
+  .main {
+
+    position: absolute;
+
+    width: 50vw;
+
+    height: 100%;
+
+    margin-right: calc(5%);
+
+    margin-left: calc(50%);
+
+    background-color: #F4F1EC;
+
+    .to-login,
+    .to-register {
+
+      z-index: 1;
+
+      padding: 0 1.9rem 1.2rem;
+
+
+      p {
+
+        cursor: pointer;
+
+        float: left;
+
+        color: rgba($primaryColor, 0.9);
+
+        font-weight: 300;
+
+        font-size: 0.8rem;
+
+
+        i {
+
+          color: lighten(red, 15%);
+
+          font-size: 0.55rem;
+
+          font-weight: 200;
+
+          margin-right: 0.35rem;
+
+        }
+
+      }
+
+
+      &:hover {
+
+        p {
+
+          color: rgba($accentColor, 0.7);
+
+        }
+
+      }
+
+    }
+
+    .login-form {
+
+      border: 0.5px solid $accentColor;
+
+      background: white;
+
+      border-radius: 9px;
+
+      width: 90%;
+
+      height: 80%;
+
+      margin: 5%;
+
+      padding: 0 1.9rem 1.2rem;
+
+
+      // copy block
+
+      .copy-block {
+
+        z-index: 1;
+
+        width: 100%;
+
+        padding: 0 0.25rem 0.25rem 0;
+
+
+        .title-header {
+
+          i {
+
+            margin-left: -3px;
+
+            margin-right: 10px;
+
+            margin-bottom: 0.45rem;
+
+            color: $primaryColor;
+
+            display: inline-block;
+
+            font-size: 25px;
+
+            animation: rot-opac-clws 0.75s 1 ease-in-out forwards;
+
+          }
+
+
+          p {
+
+            color: $primaryColor;
+
+            font-size: 0.875rem;
+
+            white-space: pre-wrap;
+
+            font-weight: 400;
+
+            margin-bottom: 0;
+
+            font-size: 26 - 1px;
+
+            letter-spacing: 0.01rem;
+
+          }
+
+        }
+
+      }
+
+
+      .message {
+
+        p {
+
+          color: red;
+
+          white-space: pre-wrap;
+
+          font-weight: 200;
+
+          font-size: 0.8rem;
+
+        }
+
+      }
+
+
+      form {
+
+        input {
+
+          color: $primaryColor !important;
+
+          caret-color: $primaryColor !important;
+
+          background-color: transparent !important;
+
+          width: 100% !important;
+
+          height: calc(1.5em + 0.75rem + 1px);
+
+          padding: 0;
+
+          font-size: 14px;
+
+          font-weight: 400;
+
+          line-height: 1.5;
+
+          background-clip: padding-box;
+
+          border-top: none;
+
+          border-right: none;
+
+          border-left: none;
+
+          border-bottom: 1px solid rgba($primaryColor, 0.2);
+
+        }
+
+
+        input:focus,
+        input:active {
+
+          background-color: transparent !important;
+
+        }
+
+
+        .password {
+
+          i {
+
+            cursor: pointer;
+
+            position: absolute;
+
+            right: 45px;
+
+            color: rgba($primaryColor, 0.3);
+
+            font-size: 0.9rem;
+
+          }
+
+        }
+
+
+        .confirm-password {
+
+          p {
+
+            color: rgba($primaryColor, 0.9);
+
+            float: right;
+
+            font-style: italic;
+
+            font-weight: 200;
+
+            font-size: 0.8rem;
+
+          }
+
+        }
+
+        .username {
+
+          p {
+
+            color: rgba($primaryColor, 0.9);
+
+            float: right;
+
+            font-style: italic;
+
+            font-weight: 200;
+
+            font-size: 0.8rem;
+
+          }
+
+        }
+
+        .firstname {
+
+          p {
+
+            color: rgba($primaryColor, 0.9);
+
+            float: right;
+
+            font-style: italic;
+
+            font-weight: 200;
+
+            font-size: 0.8rem;
+
+          }
+
+        }
+
+        .lastname {
+
+          p {
+
+            color: rgba($primaryColor, 0.9);
+
+            float: right;
+
+            font-style: italic;
+
+            font-weight: 200;
+
+            font-size: 0.8rem;
+
+          }
+
+        }
+
+        .email {
+
+          p {
+
+            color: rgba($primaryColor, 0.9);
+
+            float: right;
+
+            font-style: italic;
+
+            font-weight: 200;
+
+            font-size: 0.8rem;
+
+          }
+
+        }
+
+
+        .button {
+
+          filter: none;
+
+          position: relative;
+
+          cursor: pointer;
+
+          border: 1px solid rgba(white, 0.12);
+
+          background-color: rgba($accentColor, 0.30);
+
+          width: 100%;
+
+          height: 35px;
+
+          border-radius: 5px;
+
+          //label on button
+
+          font-size: 0.925rem;
+
+          font-weight: 900;
+
+          color: rgba($primaryColor, 0.9);
+
+          float: left;
+
+          padding: 1%;
+
+          //padding: 0.375rem 0.75rem;
+
+
+          i {
+
+            color: rgba($primaryColor, 0.4);
+
+            font-size: 0.75rem;
+
+            position: absolute;
+
+            right: 11px;
+
+            top: 11px;
+
+          }
+
+
+          &:hover {
+
+            background: linear-gradient(45deg, transparent 10%, rgba($primaryColor, 0.75) 90%, transparent 100%);
+
+
+            i {
+
+              color: rgba($primaryColor, 0.85);
+
+            }
+
+          }
+
+        }
+
+
+        input::placeholder {
+
+          color: rgba($primaryColor, 0.45);
+
+          font-size: 0.85rem;
+
+        }
+
+
+        input:focus::placeholder {
+
+          color: rgba($primaryColor, 0.65);
+
+        }
+
+      }
+
+    }
+
+  }
+
+
+}

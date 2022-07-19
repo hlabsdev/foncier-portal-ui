@@ -1,0 +1,29 @@
+<div class="flex justify-content-between align-items-center px-5 surface-0 border-bottom-1 surface-border relative">
+  <ul class="list-none lg:border-none lg:flex lg:flex-row lg:align-items-left surface-border left-0 top-100 flex" style="margin-top: 15px;margin-left: -45px;">
+      <li>
+        <button  pButton pRipple label= "{{ 'COMMON.ACTIONS.MAP' | translate }}" icon="pi pi-map" iconPos="right" class="w-full btn-eland-disable"></button>
+      </li>
+    </ul>
+    <ul class="list-none lg:border-none lg:flex lg:flex-row lg:align-items-right surface-border right-0 top-100 flex" style="margin-top: 15px;margin-right: -25px;">
+      <li>
+          <button pButton [disabled]="isCancelDisabled"  pRipple label="{{ 'COMMON.ACTIONS.CANCEL' | translate }}"  class="w-full btn-eland-disable" (click)="onCancel()">
+          </button>
+
+        </li>
+        &nbsp;
+        <li>
+          <button pButton [disabled]="isSubmitDisabled"  pRipple label="{{ 'COMMON.ACTIONS.SUBMIT' | translate }}" class="w-full btn-eland-accept" (click)="onSubmit()">
+          </button>
+        </li>
+        &nbsp;
+        <li>
+          <button pButton [disabled]="isPrevDisabled" pRipple icon="pi pi-angle-left" iconPos="left" label="{{ 'COMMON.ACTIONS.PREV' | translate }}" class="w-full btn-eland-second" (click)="onPrevious()"></button>
+
+        </li>
+        &nbsp;
+        <li>
+          <button pButton [disabled]="isNextDisabled" pRipple icon="pi pi-angle-right" iconPos="right" label="{{ 'COMMON.ACTIONS.NEXT' | translate }}"  class="w-full btn-eland-second" (click)="onNext()" ></button>
+        </li>
+
+      </ul>
+</div>

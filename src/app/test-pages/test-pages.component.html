@@ -1,0 +1,42 @@
+
+<div class="mx-5 mt-5 lign-self-auto">
+  <div class="row">
+
+    <!--<div class="col-md-12 rounded-1">
+      <a pButton pRipple
+        type="button"
+        class="btn-eland ms-2"
+        (click)="openDialog()"
+         label="{{'COMMON.ACTIONS.ADD'|translate}}"
+        icon="pi pi-plus">
+      </a>
+    </div>-->
+
+    <div class="col-md-12 my-2">
+      <portal-table
+        (addCallBack)="openDialog()"
+        [tableConfig]="tableConfig"
+        (reloadTable)="reload()"
+        (selectRow)="onRowSelect($event)"
+        (unselectRow)="onRowUnselect($event)"
+        (selectedRow)="selectedRow($event)"
+        [datas]="items"
+        (actions)="call($event)"
+        [cols]="cols">
+      </portal-table>
+    </div>
+  </div>
+</div>
+
+<portal-dialog *ngIf="dialogConfig?.showAction!" [config]="dialogConfig!" (next)="next($event)" (previous)="previous($event)" (save)="save()">
+  <ng-template #content>
+    <ng-template #tab let-tab let-index="index">
+      <ng-container *ngIf="index === 0">
+        {{ tab | json }} - {{ index }}
+      </ng-container>
+      <ng-container *ngIf="index === 1">
+        {{ tab | json }} - {{ index }}
+      </ng-container>
+    </ng-template>
+  </ng-template>
+</portal-dialog>

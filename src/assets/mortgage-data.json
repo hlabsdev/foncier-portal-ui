@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "id" : 1,
+      "propriete" : "00121/NGA",
+      "droitConserne" : "BAIL",
+      "titulaireDroit" : "KADIA SY",
+      "typeRestriction" : "Hypothèque",
+      "typeHypotheque" : "Hypothèque conventionnelle",
+      "titulaire" : "banque de l'habitat du senegal",
+      "ordre" : ""
+    },
+    {
+      "id" : 2,
+      "propriete" : "00122/NGA",
+      "droitConserne" : "BAIL",
+      "titulaireDroit" : "Hermann KEKELI GOLO",
+      "typeRestriction" : "Hypothèque",
+      "typeHypotheque" : "Hypothèque conventionnelle",
+      "titulaire" : "banque de l'habitat du canada",
+      "ordre" : ""
+    }
+  ]
+}

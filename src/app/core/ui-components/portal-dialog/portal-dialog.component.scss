@@ -1,0 +1,17 @@
+@import "src/assets/layout/css/portal-colors";
+
+#portal-dialog-tab .nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: $primaryColor;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+#portal-dialog-tab .nav-link.active {
+  //border-radius: 8px !important;
+  background: rgba($accentColor, 0.65);
+  font-weight: 800;
+  padding: .5rem 1rem !important;
+}
+

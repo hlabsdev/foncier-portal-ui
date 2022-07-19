@@ -1,0 +1,18 @@
+@import "../../../../assets/layout/css/portal-colors.scss";
+
+.blocsLine{
+}
+.oneBloc{
+    margin: 2px;
+    color: $portalWhite;
+    background-color: $portalDarkGray ;
+    border-radius: 5px;
+    .values{
+        font-size: larger;
+        font-weight: bold;
+    }
+}
+.reducedRow{
+    display: inline-block;
+    max-height: 60px;
+}

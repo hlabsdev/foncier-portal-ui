@@ -1,0 +1,42 @@
+a {
+  text-decoration: none;
+}
+
+.activeLinkNavigate {
+  color: #8D652E;
+}
+
+.activeStep {
+  background-color: #DAB30A;
+}
+
+.colorTextActive {
+  color: white !important;
+}
+
+.textApplicationStepDone {
+  color: #495057 !important;
+}
+
+.backgroundApplicationStepDone {
+  background-color: #c7c7c7;
+}
+
+.stepNumberActive {
+  color:#DAB30A ;
+  background-color: #ffffff ;
+}
+
+.stepNumberInactive {
+  color: #ffffff;
+  background-color: #000000 ;
+}
+
+.stepNumber {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 4px 8px;
+  margin-right: 0.5rem;
+}

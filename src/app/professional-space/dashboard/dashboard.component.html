@@ -1,0 +1,29 @@
+<div class="parent row">
+  <div class="col-6 left-panel">
+    <div class="miniHeader">
+      <div class="row title">
+        {{ 'DASHBOARD.WELCOME' | translate }}
+      </div>
+      <div class="row statBlocs">
+        <div class="col-3 bloc1">
+          {{ 'DASHBOARD.REJECTED_FILE' | translate}} <strong>{{rejected}}</strong>
+        </div>
+        <div class="col-3 bloc2">
+          {{ 'DASHBOARD.VALIDATED_FILES' | translate}} <strong>{{validated}}</strong>
+        </div>
+        <div class="col-3 bloc3">
+          {{ 'DASHBOARD.PENDING_FILES' | translate}} <strong>{{pending}}</strong>
+        </div>
+      </div>
+    </div>
+    <div class="statBlocZones container">
+      <div *ngFor="let elet of tab; let i = index">
+        <app-zones-stats [zoneDetails]="elet"></app-zones-stats>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 right-panel">
+    <app-gis-overview></app-gis-overview>
+  </div>
+</div>
+<section class="footer"></section>

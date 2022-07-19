@@ -1,0 +1,64 @@
+<p-dialog class="eland-dialog" [(visible)]="config.display" [style]="{width: '68vw'}"
+  [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [modal]="true" appendTo="body" [maximizable]="true"
+  (onHide)="goCancel()">
+  <ng-template pTemplate="header">
+    {{ config.title }}
+  </ng-template>
+
+  <div class="row">
+    <div class="col-sm-4">
+    <!-- <div class="col-sm-4" *ngIf="showIdentification"> -->
+      <!-- Formulaire -->
+        <!-- <ul class="list-none p-0 m-0">
+          <li class="pb-3 border-bottom-1 surface-border">
+            <div class="font-medium text-900 mt-2">Parcelle N° {{ identification.nParcelle }}</div>
+          </li>
+          <li class="pb-1 border-bottom-1 surface-border">
+            <div class="line-height-3 text-600" style="max-width: 30rem">Info</div>
+            <div class="font-medium text-900 mb-2">{{ identification.nParcelle }}</div>
+          </li>
+          <li class="pb-1 border-bottom-1 surface-border">
+            <div class="line-height-3 text-600" style="max-width: 30rem">Superficie</div>
+            <div class="font-medium text-900 mb-2">{{ identification.superficieReelle }}</div>
+          </li>
+          <li class="pb-1 border-bottom-1 surface-border">
+            <div class="line-height-3 text-600" style="max-width: 30rem">Région / Departement </div>
+            <div class="font-medium text-900 mb-2">{{ identification.region }} / {{ identification.departement }}</div>
+          </li>
+          <li class="pb-1 border-bottom-1 surface-border">
+            <div class="line-height-3 text-600" style="max-width: 30rem">Ville</div>
+            <div class="font-medium text-900 mb-2">{{ identification.villageQuartier }} </div>
+          </li>
+          <li class="pb-1 border-bottom-1 surface-border">
+            <div class="line-height-3 text-600" style="max-width: 30rem">Type Personne</div>
+            <div class="font-medium text-900 mb-2">{{ identification.typePersonne }}</div>
+          </li>
+          <li class="pb-1 border-bottom-1 surface-border">
+            <div class="line-height-3 text-600" style="max-width: 30rem">Proprietaire</div>
+            <div class="font-medium text-900 mb-2">{{ identification.proprietaire }}</div>
+          </li>
+        </ul> -->
+        <!-- <div class="row">
+        <div class="col-md-6">
+        <button type="button" pButton pRipple label="{{'COMMON.ACTIONS.CANCEL' | translate}}" class="btn-eland-warn me-3"
+        (click)="goCancel()"></button>
+      </div>
+      <div class="col-md-6">
+      <button type="button" pButton pRipple [disabled]="dialogConfig!.canSave!" label="{{'COMMON.ACTIONS.SAVE' | translate}}"
+        class="btn-eland ms-2" (click)="goSave()"></button></div>
+      </div> -->
+
+      <!-- Formulaire/ -->
+    </div>
+    <div class="col-sm-8">
+      <div class="">
+        <div class="">
+          <h5 class="card-title">Sigs</h5>
+          <a  class="btn btn-primary" (click)="submit()">click</a>
+          <app-gis-overview></app-gis-overview>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</p-dialog>

@@ -1,0 +1,62 @@
+<div></div>
+
+<ng-template #stateDetails >
+   <div class="row">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-6 mb-1">
+          <label class="form-label"> {{ 'APPLICATION.APPLICANT' | translate }}: <span
+            class="span-label">{{applicationDetails!.applicantName}}</span></label>
+        </div>
+        <div class="col-sm-6 mb-1">
+          <label class="form-label"> {{ 'APPLICATION.TRANSACTION_NAME' | translate }}:
+            <span class="span-label">{{applicationDetails!.application?.name}}</span>
+          </label>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-6 mb-1">
+          <label class="form-label"> {{ 'APPLICATION.FOLDER' | translate }} No: <span
+            class="span-label">{{applicationDetails!.applicationNumber}}</span></label>
+        </div>
+        <div class="col-sm-6 mb-1">
+          <label class="form-label"> {{ 'APPLICATION.DATE_OF_SUBMISSION' | translate }}: <span
+            class="span-label">{{applicationDetails!.creationDate}}</span></label>
+        </div>
+
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-6 mb-1">
+            <label  class="form-label"> {{ 'APPLICATION.DATE_OF_PICK_UP' | translate }}: <span class="span-label">{{applicationDetails!.creationDate}}</span></label>
+        </div>
+
+        <div class="col-sm-6 mb-1">
+          <label class="form-label"> {{ 'APPLICATION.DATE_OF_CHANGE_STATUS' | translate }}: <span
+            class="span-label">{{applicationDetails!.lastUpdateDate}}</span></label>
+        </div>
+      </div>
+      <hr>
+
+      <div class="mb-1">
+        <label class="form-label">{{ 'APPLICATION.STATUS' | translate }}</label>
+        <br>
+        <textarea class="form-control" aria-label="With textarea">{{applicationDetails.status}}</textarea>
+      </div>
+      <div class="mb-1" *ngIf="applicationDetails.status == 'rejected' && applicationDetails.rejectionReason">
+        <label class="form-label">{{ 'APPLICATION.REJECTION_REASON' | translate }}</label>
+        <br>
+        <textarea class="form-control"  aria-label="With textarea">
+          {{ applicationDetails.rejectionReason }}
+        </textarea>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<portal-dialog [config]="dialogConfig" (cancel)="close.emit()" (close)="close.emit()">
+  <ng-template #content>
+    <ng-container *ngTemplateOutlet="stateDetails"></ng-container>
+  </ng-template>
+</portal-dialog>

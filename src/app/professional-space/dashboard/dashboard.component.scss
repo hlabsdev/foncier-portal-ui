@@ -1,0 +1,47 @@
+@import "../../../assets/layout/css/portal-colors.scss";
+
+.parent{
+    margin-left: 0;
+    width: 100%;
+    height: 82vh;
+    background-color: $portalLightGray;
+}
+.left-panel{
+}
+.right-panel{
+    border-style: inset;
+}
+.title{
+    margin-left: 2px;
+    font-size: 30px;
+    font-weight: bold;
+}
+.statBlocs{
+    margin-left: 2px;
+    margin-top: 10px;
+    .bloc1{
+        background-color: $portalRed;
+        margin: 5px;
+        border-radius: 5px;
+        color: $portalWhite;
+    }
+    .bloc2{
+        background-color: $portalGreen;
+        margin: 5px;
+        border-radius: 5px;
+        color: $portalWhite;
+    }
+    .bloc3{
+        background-color: $portalOrange;
+        margin: 5px;
+        border-radius: 5px;
+        color: $portalWhite;
+    }
+}
+.statBlocZones{
+    border-style:dashed;
+    margin-left: 2px;
+    margin-top: 10px;
+    //height: 80%;
+}
+

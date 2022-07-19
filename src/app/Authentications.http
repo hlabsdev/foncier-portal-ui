@@ -1,0 +1,60 @@
+### Create a new user (Register)
+# note that password is not needed, it will be generated and sent by mail
+POST http://localhost:8282/api/v1/user/
+Content-Type: application/json
+
+{
+  "username": "hermann",
+  "password": "",
+  "firstName": "Hermann",
+  "lastName": "GOLO",
+  "email": "kekeli.golo@sogematech.com",
+  "emailVerified": "",
+  "resetCode": ""
+}
+
+### Request confirmation code
+# Here you just need the username
+POST http://localhost:8282/api/v1/user/confirmation-code/
+Content-Type: application/json
+
+{
+  "username": "hermann",
+  "password": "",
+  "firstName": "",
+  "lastName": "",
+  "email": "",
+  "emailVerified": "",
+  "resetCode": ""
+}
+
+
+### Check the confirmation code
+POST http://localhost:8282/api/v1/user/check-confirmation-code
+Content-Type: application/json
+
+{
+  "username": "hermann",
+  "password": "",
+  "firstName": "",
+  "lastName": "",
+  "email": "",
+  "emailVerified": "",
+  "resetCode": "64105"
+}
+
+
+### Change password (Id needed only when changing password while being connected)
+PUT http://localhost:8282/api/v1/user/change-password/
+Content-Type: application/json
+
+{
+  "id": 1,
+  "username": "hermann",
+  "password": "Test123",
+  "firstName": "",
+  "lastName": "",
+  "email": "",
+  "emailVerified": "",
+  "resetCode": ""
+}

@@ -1,0 +1,390 @@
+{
+	"APPLICATION": {
+		"APPLICANT": "Demandeur",
+		"APPLICANT_DESCRIPTION_TEXT": "Entrez les informations sur le demandeur.",
+		"APPLICANT_ID": "Identifiant du demandeur",
+		"APPLICATION": "Demande",
+		"APPLICATION_DESCRIPTION_TEXT": "Entrez les informations sur la demande",
+		"CIVILITY": "Civilité",
+		"DATE_OF_APPLICATION": "Date de la demande",
+		"DOMAIN": "Domaine",
+		"EMAIL": "Adresse Email",
+		"FIRSTNAME": "Prénom(s)",
+		"LASTNAME": "Nom de famille",
+		"NAME": "Nom",
+		"NOT_FOUND_ID": "Veuillez renseigner votre identifiant",
+		"NOT_FOUND_ID_TITLE": "Etape manquée",
+		"NUMBER": "Numéro de la demande",
+		"OBJET": "Objet de la demande",
+		"REFERENCE_NUMBER": "Numéro de référence",
+		"ROLE": "Fonction",
+		"STATUS": "Statut",
+		"TYPE_OF_APPLICANT": "Type demandeur",
+		"URGENT_APPLICATION": "Demande urgente",
+		"FOLDER": "Dossier",
+		"TRANSACTION_NAME": "Nom de la transaction",
+		"DATE_OF_CHANGE_STATUS": "Date changement statut",
+		"DATE_OF_PICK_UP": "Date de prise en charge",
+		"DATE_OF_SUBMISSION": "Date de soumission",
+		"REGISTRE_NAME": " Nom enregistré",
+		"ENTREPRISE_TYPE": "Type d'entreprise",
+		"REGION": "Région",
+		"STREET_NAME": " Nom de la rue",
+    "REJECTION_REASON": "Motif de Rejet"
+  },
+	"COMMON": {
+		"ACTIONS": {
+			"ACTION": "Actions",
+			"ADD": "Ajouter",
+			"CANCEL": "Annuler",
+			"CLOSE": "Fermer",
+			"DELETE": "Supprimer",
+			"DOWNLOAD": "Télécharger",
+			"EDIT": "Modifier",
+			"MAP": "Carte",
+			"NEW": "Nouveau",
+			"UPDATE":"Modification",
+			"NEXT": "Suivant",
+			"OPEN": "Ouvrir",
+			"PREV": "Précédent",
+			"SAVE": "Enregistrer",
+			"SEARCH": "Rechercher",
+			"ADVANCED_SEARCH": "Recherche avancée",
+			"START": "Commencer",
+			"SUBMIT": "Soumettre",
+			"VIEW": "Voir",
+			"STATE":"Status",
+			"VALIDATED":"Validé",
+			"PENDING":"En attente",
+			"REJECTED":"Rejeté",
+			"ARCHIVE": "Archiver",
+			"CONFIRM_REMOVE": "Confirmer",
+			"CONFIRM":"Confirmation",
+			"COMPLETED": "Terminée",
+			"UNSUPPORT":"Indisponible"
+
+		},
+		"LABELS": {
+			"ACCEPT": "Accepter",
+			"CONFIRMATION": "Confirmation",
+			"GENERAL": "Général",
+			"NO_RECORDS_FOUND": "Aucun enregistrement n'a été trouvé",
+			"REJECT": "Refuser",
+			"VISUALIZATION": "Visualisation"
+		},
+		"MESSAGE":{
+			"CONFIRM_REMOVE":"Êtes-vous sûr de vouloir effectuer cette action ?"
+		}
+	},
+	"DASHBOARD": {
+		"PENDING_FILES": "Dossiers en attentes",
+		"REJECTED_FILE": "Dossiers rejetés",
+		"VALIDATED_FILES": "Dossiers validés",
+		"WELCOME": "BIENVENUE GEOMETRE"
+	},
+	"DOCUMENT": {
+		"ADD_SOURCE_DOCUMENT": "Source du document",
+		"UPDATE_DOCUMENT":"Modification du document",
+		"VIEW_DOCUMENT":"Visualisation du document",
+		"DATE_OF_ACCEPTATION": "Date d'acceptation",
+		"DOCUMENT_SOURCE": "Source du document",
+		"FILE_NAME": "Nom de Fichier",
+		"INDIVIDUAL_NAME": "Nom individuel",
+		"INSTRUCTION_CONTACT": "Instructions de contact",
+		"LOAD": "Charger",
+		"ONLINE_RESOURCE": "Ressource en ligne",
+		"ORGANISATION_NAME": "Nom de l'organisation",
+		"POSITION_NAME": "Nom de Poste",
+		"PRINCIPAL_TYPE": "Type",
+		"REGISTRATION_DATE": "Date d'enregistrement",
+		"SERVICE_HOUR": "Heure de service",
+		"SOURCE_TYPE": "Type de source",
+		"SUBMISSION_DATE": "Date de soumission",
+		"TITLE": "Documents",
+		"TYPE": "Type"
+	},
+	"END": "Fin",
+	"ERROR": {
+		"CAMUNDA_ERROR": "Le serveur de workflow ne reponds pas",
+		"ERROR": "ERREUR",
+		"NOT_FOUND": "Aucun élément ne correspond à votre recherche",
+		"SERVER_ERROR": "Erreur lors de l'obtention des données du serveur",
+		"REQUIRED": "Champ obligatoire",
+		"PHONE": "Veuillez saisir un numéro correct",
+		"REGISTRE":"Enregistrement échoué",
+		"FILE":"Veuillez télécharger le fichier",
+		"SOURCE":"Ce document n'a pas de source",
+    "ARCHIVING": "Erreur lors de l'archivage"
+	},
+	"FOOTER": {
+		"CONTACTS": "Contacts",
+		"LEGAL_MENTION": "Mentions légales",
+		"USEFUL_LINKS": "Liens utiles"
+	},
+	"HEADER": {
+		"ADDRESS": "Adresse",
+		"APPLICATION": "Demande",
+		"APPLICATIONS": "Demandes",
+		"APPLICATION_INFORMATION": "Information de la demande",
+		"APPLICATION_LIST": "Liste des demandes",
+    "APPLICATION_LIST_ARCHIVED": "Liste de demandes achivées",
+    "APPLICATION_ARCHIVED": "Demande(s) archivée(s)",
+    "APP_TITLE": "Foncier Portail",
+		"DOCUMENT": "Document",
+		"DOCUMENTS": "Documents",
+		"DOCUMENT_LIST": "Liste des documents",
+		"GENERAL": "Général",
+		"GEOPORTAL": "Géoportail",
+		"LANG": {
+			"CHANGED": "Changement de langue",
+			"CHANGE_SUCCESS": "La langue a été changée à {{ actual }}",
+			"ENGLISH": "Anglais",
+			"FRENCH": "Français",
+			"LANG": "Langue"
+		},
+		"LOGIN": "Login",
+		"LOGOUT": "Se déconnecter",
+		"MORTGAGE": "Hypothèque",
+		"MORTGAGES": "Hypothèques",
+		"MORTGAGE_LIST": "Liste de hypothèques",
+		"NEW_APPLICATION": "Nouvelle demande",
+		"OFFICE": "Bureau",
+		"OFFICES": "Bureaux",
+		"OFFICE_LIST": "Liste des bureaux",
+		"PHONE": "Téléphone",
+		"PROCEDURE": "Procédure",
+		"PROCEDURES": "Procédures",
+		"PROCEDURE_LIST": "Liste des procédures",
+		"REGISTER": "S'enregistrer",
+    "ROLE": "Role",
+    "APPLICATION_HISTORY":"Historique des demandes"
+	},
+	"HOME": {
+		"HOME": "Accueil",
+		"PROFESSIONAL_SPACE": "Espace Professionnel",
+		"PUBLIC_SPACE": "Espace Public",
+		"WELCOME": "Bienvenue sur le portail"
+	},
+	"IDENTIFICATION": {
+		"ALLOTMENT": "Lotissement",
+		"AREA_ACTUAL": "Superficie réelle",
+		"AREA_LEGAL": "Superficie légale",
+		"CREATION_DATE": "Date de création",
+		"DATE_OF_ISSUE": "Date de délivrance",
+		"DEPARTMENT": "Département",
+		"LAND_TITLE": "Titre foncier",
+		"LAND_TITLE_TEXT": "Entrez les informations permettant d'identifier l'assiette.",
+		"LOT_NUMBER": "N° de lot",
+		"LOT_NUMBER_ALLOTMENT": "N° de lot ou lotissement",
+		"MAP": "Carte",
+		"NICAD": "NICAD",
+		"NUMBER_OF_COPIES": "Nombre de copies",
+		"NUMBER_OF_DUPLICATA": "Nombre de duplicata émis",
+		"N_PARCEL": "N° parcelle",
+		"PLATE_IDENTIFICATION": "Identification de l'assiette",
+		"REGION": "Région ",
+		"SECTION_CODE": "Code section",
+		"TOWNSHIP": "Commune ",
+		"VILLAGE_OR_DISTRICT": "Quartier",
+		"ERROR_IDENTIFY_PLATE": "Veuillez identifier l'assiette",
+		"FAIL_TITLE": "Erreur d'identification de l'assiette"
+	},
+	"LOGIN": {
+		"ERROR": "Nom d'utilisateur ou mot de passe invalide.",
+		"FAILED": "Il semblerait que nous n'arrivons pas a nous connecter. Vérifiez votre connexion internet ou ressayez plus tard. Si le problème persiste veuillez contacter l'administrateur.",
+		"FORGOT_PASSWORD": "Mot de passe oublié",
+		"LOGIN": "Se connecter",
+		"PASSWORD": "Mot de passe",
+		"TITLE_HEADER": "Espace Professionnel",
+		"TO_REGISTER": "S'enregistrer",
+		"USERNAME": "Nom d'utilisateur"
+	},
+	"LOSTPASSWORD": {
+		"CHECK_CODE": "Vérifier le code",
+		"CODE_ERROR": "Code invalide ou déjà utilisé",
+		"CODE_INSTRUCTION": "Entrez le code reçu par courriel pour pouvoir créer votre nouveau mot de passe.",
+		"CODE_VERIFIED": "Code réinitialisation vérifie avec succès",
+		"EMAIL": "Adresse e-mail",
+		"EMAIL_SENT": "Un émail de réinitialisation vous a été envoyer. Veuillez consulter vos mail et copier le code de réinitialisation a l'intérieur",
+		"EMPTY_EMAIL": "L'émail ne doit pas être vide",
+		"ERROR": "Oups! Une erreur est survenu, veuillez vous assurer que vous avez bien saisi, avez un compte avec ce mail: {{email}}, ou réessayez plus tard",
+		"INSTRUCTION": "Entrez votre nom d'utilisateur ou adresse de courriel et nous vous enverrons des instructions sur la façon de créer un nouveau mot de passe.",
+		"RESEND": "Code non reçu? Renvoyer a nouveau",
+		"RESET": "Réinitialiser",
+		"RESET_CODE": "Code de réinitialisation",
+		"TITLE_HEADER": "Demande de réinitialisation",
+		"TO_LOGIN": "Retour à se connecter",
+		"USERNAME": "Nom d'utilisateur ou émail"
+	},
+	"MESSAGES": {
+		"ACCESS_DENIED": "Accès refusé",
+		"ALERT": {
+			"ERROR": "Erreur",
+			"INFO": "Info",
+			"SUCCESS": "Succès",
+			"WARN": "Attention"
+		},
+		"AREA_CONSISTENCY_EXCEEDED_PARENT": "La superficie de la sous-parcelle dépasse la superficie parente ( {{ parent_area }} )",
+		"AREA_CONSISTENCY_EXCEEDED_SUBPARCELS": "La superficie parente ( {{ parent_area }} ) dépasse la superficie de sous-parcelles ( {{ subparcels_area }} )",
+		"CC": {
+			"All_PARCELS_MUST_BE_MOVED": "Tous les nouvelles parcelles de panneau source doivent être déplacées dans leur nouvelle unité administrative",
+			"BAD_BA_UNIT": "L'unité administrative sélectionnée n'est pas valide",
+			"BA_UNIT_MUST_HAVE_A_MAIN_PARCEL_AND_NOT_BE_RADIATED": "L'unité administrative sélectionnée doit avoir une parcelle principale et celle-ci ne doit être radié",
+			"NO_NICADS_PROVIDED": "Pas de nouveau nicad fourni",
+			"SAVE_SUCCESS": "L'assignation des parcelles sauvegardé avec succès"
+		},
+		"GO_TO_HOME": "Retourner à l'accueil",
+		"NOT_FOUND": "Page Non trouvée",
+		"NOT_FOUND_INFO": "La page que vous recherchez a peut-être été supprimée ou est temporairement indisponible",
+		"REQUIRED": "Obligatoire",
+		"SELECTION": "Selectionner"
+	},
+	"MORTGAGE": {
+		"HOLDER": "Titulaire",
+		"ORDER": "Ordre",
+		"PROPERTY": "Propriété",
+		"LAND_TITLE": "Titre foncier",
+		"NUMBER": "Numero",
+		"REGISTRY": "Registre",
+		"RESTRICTION_TYPE": "Type de restriction",
+		"RETAINED_RIGHT": "Droit concerné",
+		"RIGHT_HOLDER": "Titulaire du droit",
+		"TITLELISTE": "Liste des hypothèques et nantissement",
+		"TITLE_LISTE_TOOLTIP": "Liste des hypothèques et nantissements",
+		"TYPE": "Type d'hypothèque",
+		"VERSION":"Version",
+		"REGISTRY_CODE":"Code de registre",
+		"TITLE_NUMBER":"Numéro de titre",
+		"INTERESTRATE":"Taux d'intérêt",
+		"RANKING":"Ordre",
+		"MORTGAGE_AMOUNT":"Montant de l'hypothèque",
+		"MORTGAGE_RECORD_ID":"Dossier hypothécaire",
+		"PRINCIPAL_RESTRICTION_TYPE":"Type de restriction principale",
+		"PRINCIPAL_RIGHT_TYPE":"Type de droit principal",
+		"RIGHT_TYPE":"Type droit",
+		"MORTGAGE_HOLDER":"Titulaire d'hypothèque",
+		"RESTRICTION_TYPE_CONVENTIONAL_MORTGAGE":"Hypothèque conventionnelle",
+		"FREEHOLD":"Propriété",
+		"RIGHT_TYPE_OWNERSHIP":"Propriété"
+	},
+	"OFFICE": {
+		"APPLICATION_INFORMATION": "Information de la demande",
+		"CODE": "Code",
+		"DATE": "Date",
+		"NAME": "Nom",
+		"NOT_FOUND_ID": "Veuillez renseigner votre bureau",
+		"NOT_FOUND_ID_TITLE": "Étape manquée",
+		"REGISTER": "Registre",
+		"RESPONSIBLE_OFFICE": "Bureau responsable",
+		"TITLE": "Bureaux"
+	},
+	"ORGANIZATION": {
+		"NAME": "Sogematech"
+	},
+	"PRELOADER": {
+		"APPLICATION": "Demande",
+		"APPLICATIONS": "Demandes",
+		"ARE_LOADING": "en chargement",
+		"DOCUMENT": "Document",
+		"DOCUMENTS": "Documents",
+		"IS_LOADING": "se charge",
+		"OFFICE": "Office",
+		"OFFICES": "Offices",
+		"ONE_MOMENT": "Un instant...",
+		"PROCEDURE": "Procédure",
+		"PROCEDURES": "Procédures"
+	},
+	"PROCEDURE": {
+		"DOMAIN": "Domaine",
+		"NAME": "Nom",
+		"ROLE": "Fonction",
+		"STATUS": "Statut"
+	},
+	"REGISTER": {
+		"CONFIRM_PASSWORD": "Confimer le mot de passe",
+		"CREATE_LOGIN": "L'utilisateur a été crée avec succès",
+		"EMAIL": "Email",
+		"ERROR": "L'e-mail ou le nom d'ulisateur existe déja. Merci d'essayer un autre!!!",
+		"FIRSTNAME": "Prénom",
+		"NAME": "Nom",
+		"PASSWORD": "Mot de passe",
+		"PROFESSIONAL_SPACE": "Espace professionnel",
+		"REGISTER": "S'inscrire",
+		"SUCCESS": "Réussie",
+		"TO_LOGIN": "Retour à se connecter",
+		"USERNAME": "Nom d'utilisateur"
+	},
+	"RESET": {
+		"EMPTY": "Tout les champs doivent être remplis",
+		"ERROR": "Les deux mot de passes doivent être non vide et être identique",
+		"FAILED": "La réinitialisation du mot de passe n'a pas abouti veuillez ressayer plus tard",
+		"PASSWORD": "Mot de passe",
+		"PASSWORD_COMFIRM": "Confirmer le mot de passe",
+		"SUBMIT": "Changer le mot de passe",
+		"SUCCESS": "Mot de passe changé avec succès, veuillez vous connecter avec votre nouveau mot de passe.",
+		"TITLE_HEADER": "Changez le mot de passe",
+		"TO_LOGIN": "Retourner à Login"
+	},
+	"SEARCH_BY": "Rechercher par",
+	"START": "Début",
+	"SUCCESS": {
+		"DATA_FETCHED": "Données récupérées avec succès",
+		"SUCCESS":"Enregistrement effectué avec succès",
+    "APPLICATION_ARCHIVED": "Demande Archivé"
+	},
+	"USER": {
+		"PROFILE": {
+			"FIRSTNAME": "Prénoms",
+			"NAME": "Nom",
+			"PROFILE": "Profile",
+			"SETTINGS": "Paramètres du compte",
+			"USERNAME": "Nom d'utilisateur"
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

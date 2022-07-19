@@ -1,0 +1,17 @@
+<div class="layout-wrapper" (window:resize)="onResize($event)">
+  <app-header *ngIf="!loginPage"> </app-header>
+  <div class="col-12 layout-main p-0 m-0">
+    <div class="layout-content">
+      <router-outlet>
+        <p-toast [baseZIndex]="1" [autoZIndex]="true"></p-toast>
+      </router-outlet>
+    </div>
+  </div>
+<!-- <p-confirmDialog header="{{'COMMON.LABELS.CONFIRMATION' | translate}}"-->
+<!--                  acceptLabel="{{'COMMON.LABELS.ACCEPT' | translate}}" rejectLabel="{{'COMMON.LABELS.REJECT' | translate}}"&ndash;&gt;-->
+<!--                  icon="fa fa-question-circle"></p-confirmDialog>-->
+</div>
+ <app-footer></app-footer>
+
+
+<!--<router-outlet></router-outlet>-->

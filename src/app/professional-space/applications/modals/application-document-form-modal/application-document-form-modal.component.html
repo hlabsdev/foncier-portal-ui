@@ -1,0 +1,680 @@
+<!--APPLICATION DETAILS START-->
+<ng-template #applicationDetailForm>
+  <div>
+    <div class="row">
+      <div class="col-sm-6 mb-1">
+        <label class="form-label"> {{ 'APPLICATION.APPLICANT' | translate }}:
+          <span class="span-label">{{applicationDetails?.applicantName}}</span>
+        </label>
+      </div>
+      <div class="col-sm-6 mb-1">
+        <label class="form-label"> {{ 'APPLICATION.TRANSACTION_NAME' | translate }}:<span class="span-label">
+        {{applicationDetails?.application?.name}}
+      </span></label>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-6 mb-1">
+        <label class="form-label"> {{ 'APPLICATION.FOLDER' | translate }} No: <span
+          class="span-label">{{applicationDetails?.applicationNumber}}</span></label>
+      </div>
+      <div class="col-sm-6 mb-1">
+        <label class="form-label"> {{ 'APPLICATION.DATE_OF_CHANGE_STATUS' | translate }}:
+          <span class="span-label">{{applicationDetails?.lastUpdateDate}}</span></label>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-6 mb-1">
+        <label class="form-label"> {{ 'APPLICATION.DATE_OF_PICK_UP' | translate }}: <span
+          class="span-label">{{applicationDetails?.applicationReceptionDate}}</span></label>
+      </div>
+      <div class="col-sm-6 mb-1">
+        <label class="form-label"> {{ 'APPLICATION.DATE_OF_SUBMISSION' | translate }}:
+          <span class="span-label">{{applicationDetails?.creationDate}}</span></label>
+      </div>
+    </div>
+  </div>
+  <hr>
+</ng-template>
+<!--APPLICATION DETAILS END-->
+
+<!--DOCUMENT FORM START-->
+<ng-template #docmentForm>
+  <div>
+    <div class="mx-1 my-3 align-self-auto">
+      <portal-table
+        (addCallBack)="addDocument()"
+        [tableConfig]="documentTableConfig!"
+        [isAddBtnEnabled]="isFormEnabled!"
+        (reloadTable)="reload()"
+        [datas]="documents"
+        (actions)="call($event)"
+        (selectRow)="onRowSelect($event)"
+        (unselectRow)="onRowUnselect($event)"
+        (selectedRow)="selectedRow($event)"
+        [cols]="cols">
+      </portal-table>
+
+    </div>
+  </div>
+  <div *ngIf="this.isPanelAddDocument">
+    <form [formGroup]="addDocumentForm">
+      <!-- BEGIN Load document panel-->
+      <div class="col-md-12">
+        <div class="row">
+          <div>
+            <h5>{{ 'DOCUMENT.TITLE' | translate }}</h5>
+            <p-fileUpload name="demo[]" [showUploadButton]="true">
+            </p-fileUpload>
+          </div>
+        </div>
+      </div>
+      <!-- END Load document panel-->
+
+      <!-- BEGIN Information about document-->
+      <div class="row">
+        <div class="col-7">
+          <h5 class="float-start">{{ 'COMMON.ACTIONS.NEW' | translate }}</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 mb-0">
+          <label class="form-label">{{ 'DOCUMENT.PRINCIPAL_TYPE' | translate }} <span
+            style="color: red;">*</span></label>
+          <p-dropdown
+            [options]="principalTypes"
+            formControlName="principalTypeFormControl"
+            [(ngModel)]="principalTypeItem"
+            optionLabel="value"
+            [filter]="true"
+            filterBy="name"
+            [showClear]="true"
+            placeholder="{{'MESSAGES.SELECTION' | translate}}"
+            [style]="{'width': '100%'}">
+            <ng-template pTemplate="selectedItem">
+              <div class="country-item country-item-value" *ngIf="principalTypeItem">
+                <div>{{principalTypeItem.value}}</div>
+              </div>
+            </ng-template>
+            <ng-template let-principalTypeItem pTemplate="item">
+              <div class="country-item">
+                <div>{{principalTypeItem.value}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+
+        </div>
+        <div class="col-6 mb-0">
+          <label class="form-label">{{ 'DOCUMENT.FILE_NAME' | translate }} <span
+            style="color: red;">*</span></label>
+          <p-dropdown
+            [options]="files"
+            formControlName="file"
+            [(ngModel)]="file"
+            optionLabel="value"
+            [filter]="true"
+            filterBy="name"
+            [showClear]="true"
+            placeholder="{{'MESSAGES.SELECTION' | translate}}"
+            [style]="{'width': '100%'}">
+            <ng-template pTemplate="selectedItem">
+              <div class="country-item country-item-value" *ngIf="file">
+                <div>{{file?.value}}</div>
+              </div>
+            </ng-template>
+            <ng-template let-file pTemplate="item">
+              <div class="country-item">
+                <div>{{file?.value}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+        </div>
+        <div class="col-6 mb-0">
+          <label class="form-label">{{ 'DOCUMENT.SOURCE_TYPE' | translate }} <span
+            style="color: red;">*</span></label>
+          <p-dropdown [options]="sourceTypes"
+                      formControlName="sourceType"
+                      optionLabel="value"
+                      [(ngModel)]="sourceType"
+                      [filter]="true"
+                      filterBy="name"
+                      [showClear]="true"
+                      placeholder="{{'MESSAGES.SELECTION' | translate}}"
+                      [style]="{'width': '100%'}">
+            <ng-template pTemplate="selectedItem">
+              <div class="country-item country-item-value" *ngIf="sourceType">
+                <div>{{sourceType.value}}</div>
+              </div>
+            </ng-template>
+            <ng-template let-sourceType pTemplate="item">
+              <div class="country-item">
+                <div>{{sourceType.value}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+
+        </div>
+        <div class="col-6 mb-0">
+          <label class="form-label">{{ 'DOCUMENT.SUBMISSION_DATE' | translate }} <span
+            style="color: red;">*</span></label>
+          <p-calendar
+            dateFormat="dd-mm-yy"
+            inputId="dateformat"
+            formControlName="submissionDate"
+            [(ngModel)]="document!.submissionDate"
+            [style]="{'width': '100%'}">
+          </p-calendar>
+
+        </div>
+        <div class="col-6 mb-0">
+          <label class="form-label">{{ 'DOCUMENT.REGISTRATION_DATE' | translate}}</label>
+          <p-calendar
+            dateFormat="dd-mm-yy"
+            inputId="dateformat"
+            formControlName="registrationDate"
+            [(ngModel)]="document!.registrationDate"
+            [style]="{'width': '100%'}">
+          </p-calendar>
+        </div>
+        <div class="col-6 mb-0">
+          <label class="form-label">{{ 'DOCUMENT.DATE_OF_ACCEPTATION' | translate}}</label>
+          <p-calendar dateFormat="dd-mm-yy"
+                      inputId="dateformat"
+                      formControlName="acceptationDate"
+                      [(ngModel)]="document!.acceptationDate"
+                      [style]="{'width': '100%'}">
+          </p-calendar>
+        </div>
+      </div>
+      <hr>
+      <!-- END Informations about document-->
+
+      <!-- BEGIN ADD DOCUMENT SOURCE FORM -->
+      <h5>
+        {{'DOCUMENT.DOCUMENT_SOURCE' | translate}}
+        <span style="color: red;">*</span>
+      </h5>
+
+      <div>
+        <form [formGroup]="documentSourceForm" (ngSubmit)="onAddDocumentSource(documentSourceForm.value)">
+          <div class="row">
+            <div class="form-group col-12 mb-0">
+              <label class="form-label">{{ 'DOCUMENT.INDIVIDUAL_NAME' | translate }} <span
+                style="color: red;">*</span> </label>
+              <input type="text" class="form-control"
+                     formControlName="individualName"
+                     aria-describedby="inputGroupFileAddon04">
+              <div *ngIf="getControl('individualName')?.touched && getControl('individualName')?.invalid"
+                   class="alert alert-danger">
+                <div>{{ 'ERROR.REQUIRED' | translate }} </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-6 mb-0">
+              <label class="form-label">{{ 'DOCUMENT.POSITION_NAME' | translate }}</label>
+              <input type="text" class="form-control"
+                     formControlName="positionName"
+                     aria-describedby="inputGroupFileAddon04">
+            </div>
+            <div class="form-group col-6 mb-0">
+              <label class="form-label">{{ 'DOCUMENT.ORGANISATION_NAME' | translate }}</label>
+              <input type="text"
+                     class="form-control"
+                     formControlName="organizationName"
+                     aria-describedby="inputGroupFileAddon04">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-6 mb-0">
+              <label class="form-label">{{ 'HEADER.ROLE' | translate }} <span
+                style="color: red;">*</span></label>
+              <p-dropdown [options]="roles"
+                          formControlName="roleControlName"
+                          [(ngModel)]="roleItem"
+                          optionLabel="value"
+                          [filter]="true"
+                          filterBy="name"
+                          [showClear]="true"
+                          placeholder="{{'MESSAGES.SELECTION' | translate}}"
+                          [style]="{'width': '100%'}">
+                <ng-template pTemplate="selectedItem">
+                  <div class="country-item country-item-value" *ngIf="roleItem">
+                    <div>{{roleItem?.value}}</div>
+                  </div>
+                </ng-template>
+                <ng-template let-roleItem pTemplate="item">
+                  <div class="country-item">
+                    <div>{{roleItem?.value}}</div>
+                  </div>
+                </ng-template>
+              </p-dropdown>
+              <div *ngIf="getControl('roleControlName')?.touched && getControl('roleControlName')?.invalid"
+                   class="alert alert-danger">
+                <div>{{ 'ERROR.REQUIRED' | translate }} </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-12 mb-0">
+              <label class="form-label">{{ 'HEADER.ADDRESS' | translate }} </label>
+              <input type="text"
+                     class="form-control"
+                     formControlName="address"
+                     aria-describedby="inputGroupFileAddon04">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-6 mb-0">
+              <label class="form-label">{{ 'DOCUMENT.INSTRUCTION_CONTACT' | translate }}</label>
+              <input type="text"
+                     class="form-control"
+                     formControlName="contactInstruction"
+                     aria-describedby="inputGroupFileAddon04">
+            </div>
+            <div class="form-group col-6 mb-0">
+              <label class="form-label">{{ 'DOCUMENT.SERVICE_HOUR' | translate }}</label>
+              <p-calendar
+                formControlName="serviceHour"
+                [timeOnly]="true"
+                inputId="timeonly"
+                [style]="{'width': '100%'}">
+              </p-calendar>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-6 mb-0">
+              <label class="form-label">{{ 'DOCUMENT.ONLINE_RESOURCE' | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="onlineRessource"
+                aria-describedby="inputGroupFileAddon04">
+            </div>
+            <div class="form-group col-6 mb-0">
+              <label class="form-label">{{ 'HEADER.PHONE' | translate }}</label><br/>
+              <p-inputNumber
+                formControlName="phone"
+                inputId="integeronly"
+                [useGrouping]="false">
+              </p-inputNumber>
+            </div>
+          </div>
+          <div class="float-end">
+            &nbsp;
+            <button
+              pButton pRipple
+              type="submit"
+              [disabled]="documentSourceForm.invalid"
+              label="{{'COMMON.ACTIONS.SAVE' | translate}}"
+              class="btn-eland ms-2">
+            </button>
+          </div>
+        </form>
+
+        <!--DOCUMENT SOURCE TABLE-->
+
+        <!--DOCUMENT SOURCE TABLE-->
+      </div>
+      <!-- END ADD DOCUMENT SOURCE FORM -->
+
+    </form>
+    <hr>
+  </div>
+</ng-template>
+<!--DOCUMENT FORM END-->
+
+<!--DOCUMENT SOURCE TABLE START-->
+<ng-template #docmentSourceForm>
+  <div class="my-5">
+    <portal-table [tableConfig]="documentSourceTableConfig!" [datas]="documentsSource"
+                  (actions)="call($event)"
+                  [cols]="colsDocumentSource">
+    </portal-table>
+  </div>
+</ng-template>
+<!--DOCUMENT SOURCE TABLE END-->
+
+<portal-dialog [config]="dialogConfig" (cancel)="goCancel()" (close)="goClose()" (save)="goSave()">
+  <!--multi step start-->
+  <ng-template #content>
+    <ng-template #tab let-tab let-index="index">
+      <ng-container *ngIf="index === 0">
+        <ng-container *ngTemplateOutlet="applicationDetailForm"></ng-container>
+      </ng-container>
+      <ng-container *ngIf="index === 1">
+        <ng-container *ngTemplateOutlet="docmentForm"></ng-container>
+      </ng-container>
+      <ng-container *ngIf="index === 2">
+        <ng-container *ngTemplateOutlet="docmentSourceForm"></ng-container>
+      </ng-container>
+    </ng-template>
+  </ng-template>
+  <!--multi step end-->
+</portal-dialog>
+
+
+<!-- ================================================= junk ================================================= -->
+
+<ng-template #LE_RESTE_DES_FORMS>
+
+  <!--DOCUMENT FORM START-->
+  <div *ngIf="this.isPanelAddDocument">
+    <form [formGroup]="addDocumentForm">
+      <!-- BEGIN Load document panel-->
+      <div class="col-md-12">
+        <div class="row">
+          <div>
+            <h5>{{ 'DOCUMENT.TITLE' | translate }}</h5>
+            <p-fileUpload name="demo[]"
+                          [maxFileSize]="250000000"
+                          [multiple]=false
+                          [style]="{'background-color': '#583A14','width': '100%', 'height': '40%'}"
+                          [auto]="true"
+                          [customUpload]="true"
+                          accept=""
+                          (uploadHandler)="onUpload($event)"
+                          chooseLabel="{{'DOCUMENT.LOAD' | translate}}"
+            >
+              <ng-template pTemplate="content">
+                <ul *ngIf="uploadedFiles.length">
+                  <li *ngFor="let file of uploadedFiles">{{file.name}}</li>
+                </ul>
+              </ng-template>
+            </p-fileUpload>
+          </div>
+        </div>
+      </div>
+      <!-- END Load document panel-->
+
+      <!-- BEGIN Information about document-->
+      <div class="row">
+        <div class="col-7">
+          <h5 class="float-start">{{ 'COMMON.ACTIONS.NEW' | translate }}</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 mb-0">
+          <label class="form-label">{{ 'DOCUMENT.PRINCIPAL_TYPE' | translate }} <span
+            style="color: red;">*</span></label>
+          <p-dropdown
+            [options]="principalTypes"
+            formControlName="principalTypeFormControl"
+            [(ngModel)]="principalTypeItem"
+            optionLabel="value"
+            [filter]="true"
+            filterBy="name"
+            [showClear]="true"
+            placeholder="{{'MESSAGES.SELECTION' | translate}}"
+            [style]="{'width': '100%'}">
+            <ng-template pTemplate="selectedItem">
+              <div class="country-item country-item-value" *ngIf="principalTypeItem">
+                <div>{{principalTypeItem.value}}</div>
+              </div>
+            </ng-template>
+            <ng-template let-principalTypeItem pTemplate="item">
+              <div class="country-item">
+                <div>{{principalTypeItem.value}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+
+        </div>
+        <div class="col-6 mb-0">
+          <label class="form-label">{{ 'DOCUMENT.FILE_NAME' | translate }} <span
+            style="color: red;">*</span></label>
+          <p-dropdown
+            [options]="files"
+            formControlName="file"
+            [(ngModel)]="file"
+            optionLabel="value"
+            [filter]="true"
+            filterBy="name"
+            [showClear]="true"
+            placeholder="{{'MESSAGES.SELECTION' | translate}}"
+            [style]="{'width': '100%'}">
+            <ng-template pTemplate="selectedItem">
+              <div class="country-item country-item-value" *ngIf="file">
+                <div>{{file?.value}}</div>
+              </div>
+            </ng-template>
+            <ng-template let-file pTemplate="item">
+              <div class="country-item">
+                <div>{{file?.value}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+        </div>
+        <div class="col-6 mb-0">
+          <label class="form-label">{{ 'DOCUMENT.SOURCE_TYPE' | translate }} <span
+            style="color: red;">*</span></label>
+          <p-dropdown [options]="sourceTypes"
+                      formControlName="sourceType"
+                      optionLabel="value"
+                      [(ngModel)]="sourceType"
+                      [filter]="true"
+                      filterBy="name"
+                      [showClear]="true"
+                      placeholder="{{'MESSAGES.SELECTION' | translate}}"
+                      [style]="{'width': '100%'}">
+            <ng-template pTemplate="selectedItem">
+              <div class="country-item country-item-value" *ngIf="sourceType">
+                <div>{{sourceType.value}}</div>
+              </div>
+            </ng-template>
+            <ng-template let-sourceType pTemplate="item">
+              <div class="country-item">
+                <div>{{sourceType.value}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+
+        </div>
+        <div class="col-6 mb-0">
+          <label class="form-label">{{ 'DOCUMENT.SUBMISSION_DATE' | translate }} <span
+            style="color: red;">*</span></label>
+          <p-calendar
+            dateFormat="dd-mm-yy"
+            inputId="dateformat"
+            formControlName="submissionDate"
+            [(ngModel)]="document.submissionDate"
+            [style]="{'width': '100%'}">
+          </p-calendar>
+
+        </div>
+        <div class="col-6 mb-0">
+          <label class="form-label">{{ 'DOCUMENT.REGISTRATION_DATE' | translate}}</label>
+          <p-calendar
+            dateFormat="dd-mm-yy"
+            inputId="dateformat"
+            formControlName="registrationDate"
+            [(ngModel)]="document.registrationDate"
+            [style]="{'width': '100%'}">
+          </p-calendar>
+        </div>
+        <div class="col-6 mb-0">
+          <label class="form-label">{{ 'DOCUMENT.DATE_OF_ACCEPTATION' | translate}}</label>
+          <p-calendar dateFormat="dd-mm-yy"
+                      inputId="dateformat"
+                      formControlName="acceptationDate"
+                      [(ngModel)]="document.acceptationDate"
+                      [style]="{'width': '100%'}">
+          </p-calendar>
+        </div>
+      </div>
+      <hr>
+      <!-- END Informations about document-->
+
+      <!-- BEGIN ADD DOCUMENT SOURCE FORM -->
+      <h5>
+        {{'DOCUMENT.DOCUMENT_SOURCE' | translate}}
+        <span style="color: red;">*</span>
+      </h5>
+
+      <div>
+        <form [formGroup]="documentSourceForm" (ngSubmit)="onAddDocumentSource(documentSourceForm.value)">
+          <div class="row">
+            <div class="form-group col-12 mb-0">
+              <label class="form-label">{{ 'DOCUMENT.INDIVIDUAL_NAME' | translate }} <span
+                style="color: red;">*</span> </label>
+              <input type="text" class="form-control"
+                     formControlName="individualName"
+                     aria-describedby="inputGroupFileAddon04">
+              <div *ngIf="getControl('individualName')?.touched && getControl('individualName')?.invalid"
+                   class="alert alert-danger">
+                <div>{{ 'ERROR.REQUIRED' | translate }} </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-6 mb-0">
+              <label class="form-label">{{ 'DOCUMENT.POSITION_NAME' | translate }}</label>
+              <input type="text" class="form-control"
+                     formControlName="positionName"
+                     aria-describedby="inputGroupFileAddon04">
+            </div>
+            <div class="form-group col-6 mb-0">
+              <label class="form-label">{{ 'DOCUMENT.ORGANISATION_NAME' | translate }}</label>
+              <input type="text"
+                     class="form-control"
+                     formControlName="organizationName"
+                     aria-describedby="inputGroupFileAddon04">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-6 mb-0">
+              <label class="form-label">{{ 'HEADER.ROLE' | translate }} <span
+                style="color: red;">*</span></label>
+              <p-dropdown [options]="roles"
+                          formControlName="roleControlName"
+                          [(ngModel)]="roleItem"
+                          optionLabel="value"
+                          [filter]="true"
+                          filterBy="name"
+                          [showClear]="true"
+                          placeholder="{{'MESSAGES.SELECTION' | translate}}"
+                          [style]="{'width': '100%'}">
+                <ng-template pTemplate="selectedItem">
+                  <div class="country-item country-item-value" *ngIf="roleItem">
+                    <div>{{roleItem?.value}}</div>
+                  </div>
+                </ng-template>
+                <ng-template let-roleItem pTemplate="item">
+                  <div class="country-item">
+                    <div>{{roleItem?.value}}</div>
+                  </div>
+                </ng-template>
+              </p-dropdown>
+              <div *ngIf="getControl('roleControlName')?.touched && getControl('roleControlName')?.invalid"
+                   class="alert alert-danger">
+                <div>{{ 'ERROR.REQUIRED' | translate }} </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-12 mb-0">
+              <label class="form-label">{{ 'HEADER.ADDRESS' | translate }} </label>
+              <input type="text"
+                     class="form-control"
+                     formControlName="address"
+                     aria-describedby="inputGroupFileAddon04">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-6 mb-0">
+              <label class="form-label">{{ 'DOCUMENT.INSTRUCTION_CONTACT' | translate }}</label>
+              <input type="text"
+                     class="form-control"
+                     formControlName="contactInstruction"
+                     aria-describedby="inputGroupFileAddon04">
+            </div>
+            <div class="form-group col-6 mb-0">
+              <label class="form-label">{{ 'DOCUMENT.SERVICE_HOUR' | translate }}</label>
+              <p-calendar
+                formControlName="serviceHour"
+                [timeOnly]="true"
+                inputId="timeonly"
+                [style]="{'width': '100%'}">
+              </p-calendar>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-6 mb-0">
+              <label class="form-label">{{ 'DOCUMENT.ONLINE_RESOURCE' | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="onlineRessource"
+                aria-describedby="inputGroupFileAddon04">
+            </div>
+            <div class="form-group col-6 mb-0">
+              <label class="form-label">{{ 'HEADER.PHONE' | translate }}</label><br/>
+              <p-inputNumber
+                formControlName="phone"
+                inputId="integeronly"
+                [useGrouping]="false">
+              </p-inputNumber>
+            </div>
+          </div>
+          <div class="float-end">
+            &nbsp;
+            <button
+              pButton pRipple
+              type="submit"
+              [disabled]="documentSourceForm.invalid"
+              label="{{'COMMON.ACTIONS.SAVE' | translate}}"
+              class="btn-eland ms-2">
+            </button>
+          </div>
+        </form>
+
+        <!--DOCUMENT SOURCE TABLE-->
+        <div class="my-5">
+          <portal-table [tableConfig]="documentSourceTableConfig!" [datas]="documentsSource"
+                        (actions)="call($event)"
+                        [cols]="colsDocumentSource">
+          </portal-table>
+        </div>
+        <!--DOCUMENT SOURCE TABLE-->
+      </div>
+      <!-- END ADD DOCUMENT SOURCE FORM -->
+
+    </form>
+    <hr>
+  </div>
+  <!--DOCUMENT FORM END-->
+
+  <!--DOCUMENT TABLE START-->
+  <div>
+    <div class="mx-1 my-3 align-self-auto">
+      <portal-table
+        (addCallBack)="addDocument()"
+        [tableConfig]="documentTableConfig!"
+        [isAddBtnEnabled]="isFormEnabled!"
+        (reloadTable)="reload()"
+        [datas]="documents"
+        (actions)="call($event)"
+        (selectRow)="onRowSelect($event)"
+        (unselectRow)="onRowUnselect($event)"
+        (selectedRow)="selectedRow($event)"
+        [cols]="cols">
+      </portal-table>
+
+    </div>
+  </div>
+  <!--DOCUMENT TABLE END-->
+
+  <!--FOOTER START -->
+  <ng-template pTemplate="footer">
+    <button type="button" pButton pRipple label="{{'COMMON.ACTIONS.CANCEL' | translate}}"
+            class="btn-eland-warn me-3"
+            (click)="goCancel()"></button>
+    <button *ngIf="isFormEnabled" pButton pRipple label="{{'COMMON.LABELS.ACCEPT' | translate}}"
+            class="btn-eland-accept me-3"
+            (click)="onSubmitAddDocument(addDocumentForm.value)"></button>
+  </ng-template>
+  <!--FOOTER END-->
+
+</ng-template>

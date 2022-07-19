@@ -1,0 +1,140 @@
+<nav class="navbar navbar-light navbar-expand-lg topbar" id="navbarMain">
+  <a class="navbar-brand navbar-expand" routerLink="/">
+      <img title="{{'HEADER.APP_TITLE' | translate}}" class="logo" [src]="'assets/img/logo-sgf.png'" style="height: 30px; width: 100px ">
+  </a>
+
+  <!-- responsive utilisateur (dropdown) -->
+  <div class="nav-item me-auto d-none d-md-inline-flex d-lg-none d-sm-inline-flex d-inline-flex" style="margin-left: auto;">
+    <ng-container *ngTemplateOutlet="langNotif"></ng-container>
+  </div>
+
+  <!-- Sidebar menu button (Responsive) -->
+  <button (click)="sidebar()" class="navbar-toggler mt-sm-1 mx-2" type="button" data-bs-toggle="collapse"
+          aria-expanded="false" aria-label="Toggle navigation" style="background-color: #583A14">
+    <span class="text-white">☰</span>
+  </button>
+
+  <div *ngIf="isAuthenticated" class="collapse navbar-collapse">
+    <ul class="navbar-nav w-100 border-0 mx-3">
+
+      <!-- Container for menu item (No responsive) -->
+      <ng-container *ngTemplateOutlet="elandMenu"></ng-container>
+      <!-- Menu vide -->
+      <li *ngIf="isAuthenticated" class="nav-item me-auto d-flex">
+        <p class="nav-link text-white">
+          <span class="text-capitalize"></span>
+        </p>
+      </li>
+
+      <!-- Lang and notif (No responsive) -->
+      <ng-container *ngTemplateOutlet="langNotif"></ng-container>
+
+      <!-- authenticated user (No responsive) -->
+      <ng-container *ngTemplateOutlet="dropdownUser"></ng-container>
+      <!-- Vertical divider -->
+      <li class="divider"></li>
+      <!-- Logout bouton -->
+      <li *ngIf="isAuthenticated" class="nav-item md:align-items-end d-flex user" (click)="doLogout()">
+        <a class="px-2 nav-link d-flex text-white" role="button" aria-pressed="true">
+          {{ 'HEADER.LOGOUT' | translate }}
+          <i class="my-1 mx-2 pi pi-sign-out text-white"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Menu items start -->
+<ng-template #elandMenu>
+  <!-- Menu Application (dropdown) -->
+  <li *ngIf="isAuthenticated" class="nav-item user d-flex">
+    <!-- <a #transact class="nav-link text-white" (click)="app.onTopbarItemClick($event, transact); application.toggle($event)" role="button">-->
+    <a class="nav-link text-white" (click)="application.toggle($event);" role="button">
+      <span class="text-capitalize">{{ 'HEADER.APPLICATION' | translate }}</span>
+      <i #chevron class="my-1 mx-1 pi pi-angle-down text-white"></i>
+    </a>
+  </li>
+
+  <!-- Menu Hypothec -->
+  <li *ngIf="isAuthenticated && !isPublic()" class="nav-item user d-flex">
+    <a class="nav-link text-white" routerLink="professional-space/mortgage-list"
+       role="button">
+      <span class="text-capitalize">{{ 'HEADER.MORTGAGE' | translate }}</span>
+    </a>
+  </li>
+
+  <!-- Menu Geo -->
+  <li *ngIf="isAuthenticated" class="nav-item user me-auto d-flex">
+    <a class="nav-link text-white" [routerLink]="getCurrentSpace()+'/geoportal'"
+       role="button">
+      <span class="text-capitalize">{{ 'HEADER.GEOPORTAL' | translate }}</span>
+    </a>
+  </li>
+</ng-template>
+<!-- Menu items end -->
+
+<!-- Langue et notification start -->
+<ng-template #langNotif>
+  <!-- Langage change dropdown -->
+  <li class="nav-item d-flex user mx-1">
+    <a class="nav-link d-flex text-white" (click)="lang.toggle($event)"
+       role="button">
+      <span class="text-uppercase">{{ 'HEADER.LANG.LANG' | translate }} <i class="my-1 pi pi-globe text-white"></i></span>
+    </a>
+  </li>
+
+  <!-- notification icon -->
+  <li *ngIf="isAuthenticated" class="nav-item d-flex user mx-1">
+    <a class=" notif nav-link d-flex text-white mx-2"
+       role="button" [style]="{'background-image': 'url('+alarmImg+')'}" (click)="notif.toggle($event)">
+      <span *ngIf="notifs!.length > 0" class="count">{{(notifs!.length-2) > 0?(notifs!.length-2):0}}</span>
+    </a>
+  </li>
+</ng-template>
+<!-- Langue et notification end -->
+
+<!-- Menu utilisateur (Dropdown) start -->
+<ng-template #dropdownUser>
+  <!-- User dropdown -->
+  <li *ngIf="isAuthenticated" class="nav-item md:align-items-end d-flex user mx-1">
+    <a class="nav-link d-flex text-white md:align-self-end  md:justify-content-end" (click)="user.toggle($event);"
+       role="button">
+      <span class="text-capitalize">{{app.connectedUser?.username}}</span>
+      <i class="my-1 mx-2 pi pi-user text-white"></i>
+      <i #caret class="my-1 mx-2 pi pi-angle-down text-white"></i>
+    </a>
+  </li>
+
+  <!-- Login bouton -->
+  <li *ngIf="!isAuthenticated" class="nav-item md:align-items-end d-flex user mx-1">
+    <a class="px-2 nav-link d-flex text-white" role="button">
+      {{ 'HEADER.LOGIN' | translate }}
+      <i class="my-1 mx-2 pi pi-sign-in text-white"></i>
+    </a>
+  </li>
+
+  <!-- Register bouton -->
+  <li *ngIf="!isAuthenticated" class="nav-item md:align-items-end d-flex user mx-1">
+    <a class="px-2 nav-link d-flex text-white" role="button">
+      {{ 'HEADER.REGISTER' | translate }}
+      <i class="my-1 mx-2 pi pi-user-plus text-white"></i>
+    </a>
+  </li>
+</ng-template>
+<!-- Menu utilisateur (Dropdown) end -->
+
+<!--Les menu dropdown -->
+<p-menu #application [style]="menuItemStyle" [model]="applicationMenu!.items!" [popup]="true"></p-menu>
+<!--<p-menu #hypothec [style]="menuItemStyle" [model]="userMenu!.items!" [popup]="true"></p-menu>-->
+<p-menu #lang [style]="menuItemStyle" [model]="langMenu!.items!" [autoZIndex]="true" [popup]="true"></p-menu>
+<p-menu #notif [style]="menuItemStyle" [model]="notifs!" [autoZIndex]="true" [popup]="true"></p-menu>
+<p-menu #user [style]="menuItemStyle" [model]="userMenu!.items!" [popup]="true"></p-menu>
+
+<!-- Sidebar pour le menu responsive -->
+<p-sidebar [(visible)]="displaySideBar" id="responsive-menu">
+  <ng-container *ngTemplateOutlet="elandMenu"></ng-container>
+  <br>
+  <br>
+  <ng-container *ngTemplateOutlet="langNotif"></ng-container>
+  <ng-container *ngTemplateOutlet="dropdownUser"></ng-container>
+</p-sidebar>

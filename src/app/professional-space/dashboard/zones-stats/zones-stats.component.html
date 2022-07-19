@@ -1,0 +1,13 @@
+<div class="zoneTitle">{{zoneDetails[0][0]}}</div>
+<div class="row blocsLine">
+    <div class="oneBloc col-3" *ngFor="let zoneDetail of splittedArray; let index = index">
+        <div class="reducedRow container">
+            <div class="row values">
+                {{zoneDetail[1]}}
+            </div>
+            <div class="row">
+                {{zoneDetail[0]}} 
+            </div>
+        </div>
+    </div>
+</div>

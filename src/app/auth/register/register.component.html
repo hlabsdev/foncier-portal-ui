@@ -1,0 +1,64 @@
+<ngx-ui-loader></ngx-ui-loader>
+
+<section class="register-page">
+  <section class="main main-register">
+    <div class="row">
+      <div class="col-6 pt-6">
+      <div class="to-login">
+      <a routerLink="/login">
+        <p style="margin-left: 0%;">
+          <i class="pi pi-chevron-left"></i>
+          {{'REGISTER.TO_LOGIN' | translate}}
+        </p>
+      </a>
+    </div>
+      </div>
+    <div class="col-6">
+      <img [src]="sgfLogo" alt="Image" class="logo logo-register">
+    </div>
+    </div>
+    <div class="global-form register-form">
+      <div class="copy-block">
+        <div class="title-header pt-4">
+          <p>{{'REGISTER.PROFESSIONAL_SPACE' | translate}}</p>
+        </div>
+        <div class="message" *ngIf="errorMessage">
+          <p>{{'REGISTER.ERROR' | translate}}</p>
+        </div>
+      </div>
+      <form>
+        <div class="row name pt-3 pb-2">
+          <div class="col-12">
+            <input type="text" name="firstname" placeholder="{{'REGISTER.FIRSTNAME' | translate}}" [(ngModel)]="firstname" [disabled]="loading"/>
+          </div>
+        </div>
+        <div class="row name pb-2">
+          <div class="col-12">
+            <input type="text" name="lastname" placeholder="{{'REGISTER.NAME' | translate}}" [(ngModel)]="lastname" [disabled]="loading" />
+          </div>
+        </div>
+        <div class="row name pb-2">
+          <div class="col-12">
+            <input type="text" name="email" placeholder="{{'REGISTER.EMAIL' | translate}}" [(ngModel)]="email" [disabled]="loading"/>
+          </div>
+        </div>
+        <div class="row name pb-2">
+          <div class="col-12">
+            <input type="text" name="username" placeholder="{{'REGISTER.USERNAME' | translate}}" [(ngModel)]="username" [disabled]="loading" />
+          </div>
+        </div>
+        <div class="row button-login">
+          <div class="col-12">
+            <div class="button" *ngIf="!loading" (click)="submit()">
+              {{'REGISTER.REGISTER' | translate}}
+              <i class="pi pi-sign-in"></i>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="footer">
+  </section>
+</section>

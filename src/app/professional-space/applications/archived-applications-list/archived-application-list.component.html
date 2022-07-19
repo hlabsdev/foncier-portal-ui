@@ -1,0 +1,6 @@
+<ngx-ui-loader [text]="preloaderMessage"></ngx-ui-loader>
+
+<div class="mx-5 my-5 align-self-auto">
+  <portal-table [tableConfig]="tableConfig!" (reloadTable)="reload()" [datas]="userApplications" [cols]="cols">
+  </portal-table>
+</div>

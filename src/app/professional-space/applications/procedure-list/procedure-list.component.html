@@ -1,0 +1,25 @@
+<ngx-ui-loader [text]="preloaderMessage"></ngx-ui-loader>
+
+<div class="mx-5 my-5 align-self-auto">
+  <portal-table
+    [tableConfig]="tableConfig!"
+    (reloadTable)="reload()"
+    [datas]="procedures"
+    [allDatas]="procedures"
+    (actions)="call($event)"
+    (selectRow)="onRowSelect($event)"
+    (unselectRow)="onRowUnselect($event)"
+    (selectedRow)="selectedRow($event)"
+    [cols]="cols">
+  </portal-table>
+</div>
+
+<portal-dialog *ngIf="dialogConfig" [config]="dialogConfig!">
+  <ng-template #content>
+    <ng-template #tab let-tab let-index="index">
+      <ng-container *ngIf="index === 0">
+        <ng-template #lazyProcedure *ngIf="procedure! && procedure!.uuid"></ng-template>
+      </ng-container>
+    </ng-template>
+  </ng-template>
+</portal-dialog>

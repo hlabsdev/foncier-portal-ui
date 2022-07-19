@@ -1,0 +1,896 @@
+@charset "UTF-8";
+/* You can add global styles to this file, and also import other style files */
+//@import "bootstrap/scss/bootstrap.scss";
+//@import '~bootstrap/dist/css/bootstrap.css';
+@import "primeflex/primeflex.css";
+@import "assets/layout/css/portal-colors.scss";
+@import "primeng/resources/themes/bootstrap4-light-blue/theme.css";
+@import "primeng/resources/primeng.min.css";
+@import "primeicons/primeicons.css";
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+/* Main body style start */
+body {
+  height: 100%;
+  font-family: Muli, Regular, cursive;
+  font-weight: 400 !important;
+  word-break: break-word !important;
+  background-color: rgba($primaryColor, 0.20);
+  text-decoration: $primaryTextColor;
+}
+/* Main body style end */
+
+//The vertical divider between menu items and user dropdown
+li.divider {
+  margin-top: 11px;
+  border-right: 1px dotted white;
+  width: 1px;
+  height: 25px;
+  margin-right: 10px;
+  margin-left: 10px;
+  -webkit-animation-name: hvr-opac-pop;
+  animation-name: hvr-opac-pop;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: 2;
+  animation-iteration-count: 2;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+/* Eland custom buttons style start */
+//Ombre sous les buttons
+.elevated {
+  box-shadow: -4px 4px 4px 0px rgb(0 0 0 / 40%), 0px 4px 4px 0 rgb(0 0 0 / 25%)
+}
+
+.btn-eland, .p-fileupload .p-fileupload-buttonbar .p-button {
+  border: 0 $primaryColor;
+  border-radius: 8px;
+  background: $primaryColor;
+  text-decoration: $primaryTextColor;
+  color: $primaryTextColor;
+  margin: 3px;
+
+  &:enabled:hover {
+    opacity: 90%;
+    background: $primaryColor;
+    color: $primaryTextColor;
+  }
+  &:disabled {
+    opacity: 25%;
+    background: $primaryColor;
+    color: $primaryTextColor;
+  }
+}
+
+.btn-eland-second {
+  border: 0 $accentColor;
+  border-radius: 8px;
+  background: $accentColor;
+  text-decoration: $primaryTextColor;
+  color: $primaryTextColor;
+  margin: 3px;
+
+  &:enabled:hover {
+    opacity: 90%;
+    background: $accentColor;
+    color: $primaryTextColor;
+  }
+  &:disabled {
+    opacity: 25%;
+    background: $accentColor;
+    color: $primaryTextColor;
+  }
+}
+
+.btn-eland-warn, cancel-button {
+  border: 0 $warningColor;
+  border-radius: 8px;
+  background: $warningColor;
+  text-decoration: $primaryTextColor;
+  color: $primaryTextColor;
+  margin: 3px;
+
+  &:enabled:hover {
+    opacity: 90%;
+    background: $warningColor;
+    color: $primaryTextColor;
+  }
+  &:disabled {
+    opacity: 25%;
+    background: $warningColor;
+    color: $primaryTextColor;
+  }
+}
+
+.btn-eland-edit {
+  border: 0 $portalBlue;
+  border-radius: 8px;
+  background: $portalBlue;
+  text-decoration: $primaryTextColor;
+  color: $primaryTextColor;
+  margin: 3px;
+
+  &:enabled:hover {
+    opacity: 90%;
+    background: $portalBlue;
+    color: $primaryTextColor;
+  }
+  &:disabled {
+    opacity: 25%;
+    background: $portalBlue;
+    color: $primaryTextColor;
+  }
+}
+
+.btn-eland-download {
+  border: 0 $portalBrown;
+  border-radius: 8px;
+  background: $portalBrown;
+  text-decoration: $primaryTextColor;
+  color: $primaryTextColor;
+  margin: 3px;
+
+  &:enabled:hover {
+    opacity: 90%;
+    background: $portalBrown;
+    color: $primaryTextColor;
+  }
+  &:disabled {
+    opacity: 25%;
+    background: $portalBrown;
+    color: $primaryTextColor;
+  }
+}
+
+.btn-eland-accept {
+  border: 0 $portalGreen;
+  border-radius: 8px;
+  background: $portalGreen;
+  text-decoration: $primaryTextColor;
+  color: $primaryTextColor;
+  margin: 3px;
+
+  &:enabled:hover {
+    opacity: 90%;
+    background: $portalGreen;
+    color: $primaryTextColor;
+  }
+  &:disabled {
+    opacity: 25%;
+    background: $portalGreen;
+    color: $primaryTextColor;
+  }
+}
+
+.btn-eland-disable {
+  border: 0 $portalGray;
+  border-radius: 8px;
+  background: $portalGray;
+  text-decoration: $primaryTextColor;
+  color: $primaryTextColor;
+  margin: 3px;
+
+  &:enabled:hover {
+    opacity: 90%;
+    background: $portalGray;
+    color: $primaryTextColor;
+  }
+  &:disabled {
+    opacity: 25%;
+    background: $portalGray;
+    color: $primaryTextColor;
+  }
+}
+/* Eland custom buttons style end */
+
+/* Respomsive sidebar style start */
+#responsive-menu .p-sidebar {
+  background-image: linear-gradient(to bottom right, rgb(198, 165, 49), rgba(88, 58, 20, 0.5));
+  border-radius: 0 20px 20px 0 ;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+#responsive-menu .p-sidebar-content {
+  height: inherit;
+  margin: 5px 0;
+}
+
+#responsive-menu .p-sidebar-content li a.nav-link {
+  color: white !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+  padding: inherit;
+}
+
+#responsive-menu .p-sidebar-content li .dropdown-menu.show {
+  color: white !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+  padding: inherit;
+  font-size: inherit;
+}
+
+#responsive-menu .p-sidebar-content li {
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.35);
+}
+
+//Boutton close
+#responsive-menu .p-sidebar-close.p-sidebar-icon {
+  color: white;
+  background-color: $primaryColor;
+}
+
+#responsive-menu .li.nav-item.menu.ng-tns-c35-7.ng-s .tar-inserted::marker {
+  text-decoration: none;
+  unicode-bidi: unset;
+  font-variant-numeric: unset;
+  text-transform: none;
+  color: transparent;
+  text-indent: 0 !important;
+  text-align: start !important;
+  text-align-last: start !important;
+}
+/* Respomsive sidebar style end */
+
+/* P-menu custom style start */
+.p-menu .p-menuitem-link .p-menuitem-text {
+  color: #ffffff;
+}
+
+.app-footer {
+  position: fixed;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 46%,
+    rgba(255, 255, 255, 1) 100%
+  );
+
+  padding: 0.5rem 1rem;
+  color: rgba(black, 0.2);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  width: 100%;
+  text-align: right;
+  z-index: 1;
+
+  p {
+    display: inline;
+    font-size: $default-font-size - 6px;
+    margin-top: 10rem;
+  }
+}
+/* P-menu custom style end */
+
+/* Form components start */
+.search-bar-input {
+  width: 95%;
+}
+
+.search-bar-button {
+  width: 40px;
+}
+
+.search-bar .form-control {
+  padding: .375rem 1.75rem;
+}
+
+// form validation styles -
+form.was-validated {
+  .form-control:valid,
+  .form-control.is-valid,
+  .form-control:invalid,
+  .form-control.is-invalid {
+    background-image: none;
+  }
+  input.ng-invalid {
+    border: 1px solid rgba($portalRed, 100) !important;
+  }
+  input.ng-invalid:focus {
+    box-shadow: 0 0 0 0.2em rgba($portalRed, 25);
+  }
+  p-calendar.ng-invalid input {
+    border: 1px solid rgba($portalRed, 100) !important;
+  }
+  p-dropdown.ng-invalid,
+  input.ng-valid {
+    .ui-dropdown {
+      border: 1px solid rgba($portalRed, 100) !important;
+    }
+  }
+}
+
+
+// changes the default primeng theme for the form controls
+
+.form-control,
+.input-group-text {
+  border-color: rgba($portalGray, 85);
+}
+
+// resets the primeng theme and apply or custom styles
+body .p-datatable .ui-sortable-column:not(.ui-state-highlight):hover a {
+  background-color: white !important;
+}
+
+body .p-datatable .ui-sortable-column:hover {
+  background-color: rgba($portalGray, 100);
+}
+
+body .p-datatable .ui-sortable-column.ui-state-highlight {
+  background-color: rgba($portalGray, 100);
+}
+
+body .ui-inputtext {
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 0.85rem !important;
+}
+
+// removes the blue-ish background-color
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: inherit !important;
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset;
+  box-shadow: 0 0 0 1000px #ffffff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+/* Form components end */
+
+/* Eland table and components start */
+//Ptable
+.rdai p-table .p-datatable .p-datatable-thead tr th {
+  border: 1px solid #000000 !important;
+}
+
+.rdai .p-datatable-resizable .p-resizable-column {
+  background-clip: padding-box;
+  position: inherit;
+}
+
+//Custom search in table head
+.p-datatable-resizable .p-resizable-column:not(.p-frozen-column) {
+  background-clip: padding-box;
+  position: sticky;
+  overflow: visible;
+}
+///Vertival line separating cells
+.p-datatable-resizable .p-datatable-thead>tr>th, .p-datatable-resizable .p-datatable-tfoot>tr>td, .p-datatable-resizable .p-datatable-tbody>tr>td {
+  overflow: visible;
+  border: 0.5px solid rgba($accentColor, 0.25);
+  white-space: nowrap;
+}
+
+.p-datatable-resizable .p-datatable-tbody>tr>td {
+  padding: 5px;
+}
+.mortgage .p-datatable .p-datatable-tbody>tr {
+  background-color: white !important;
+  color: black !important;
+}
+.p-datatable .p-datatable-tbody>tr.p-highlight {
+  background: rgb(198, 165, 49);
+  color: #fff;
+}
+
+.divisionRegistry p-table .p-datatable .p-datatable-thead tr th {
+  border: 1px solid #000000 !important;
+}
+
+//surrounding color of the page number
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background: $accentColor;
+  border-color: $accentColor;
+  color: #ffffff;
+}
+
+//chose limit dropdown
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+  color: #ffffff;
+  background: $accentColor;
+}
+
+//Ptable header
+.p-datatable .p-datatable-thead > tr > th {
+  text-align: left;
+  //padding: 1rem 1rem;
+  //border: 1px solid rgba($accentColor, 0.25);
+  background-color: #80808082;
+  font-weight: 600;
+  color: #212529;
+  overflow: auto;
+  //transition: box-shadow 0.15s;
+}
+
+//Buttons suivant et precedant
+.p-paginator .p-paginator-first, .p-paginator .p-paginator-prev, .p-paginator .p-paginator-next, .p-paginator .p-paginator-last {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  color: $primaryColor;
+  min-width: 2.357rem;
+  height: 2.357rem;
+  margin: 0 0 0 -1px;
+  transition: box-shadow 0.15s;
+  border-radius: 0;
+}
+
+//// paginator
+.p-paginator .p-paginator-pages .p-paginator-page {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  color: $primaryColor;
+  min-width: 2.357rem;
+  height: 2.357rem;
+  margin: 0 0 0 -1px;
+  transition: box-shadow 0.15s;
+  border-radius: 0;
+}
+
+///Rounded border
+p-table {
+  border-radius: 10px;
+}
+
+.rounded-table {
+  border-radius: 10px;
+}
+
+.p-datatable-header {
+  border-radius: 10px 10px 0 0;
+}
+
+.p-datatable .p-paginator-bottom {
+  border-width: 1px 0 0 0;
+  border-radius: 0 0 10px 10px;
+}
+/* Eland table and components end */
+
+/* Login, lost password, register */
+.login-page,.lost-password-page,.register-page
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./assets/img/home-background.png');
+
+
+  .main {
+    position: absolute;
+    width: 50vw;
+    height: 100%;
+    margin-right: calc(5%);
+    margin-left: calc(50% );
+    background-color: #F4F1EC;
+
+    .img-register{
+      padding: 3rem 4rem 0 0;
+    }
+    .logo-register{
+      margin-right: calc(10%);
+      margin-top: 2.5rem;
+    }
+
+    .logo{
+      float: right;
+      width: auto;
+      height: 1.5em;
+    }
+    .logo-loss-password{
+
+      margin-right: calc(20%);
+    }
+
+    .global-form {
+      border: 2px solid $portalYellow;
+      background: white;
+      border-radius: 9px;
+      .copy-block {
+        z-index: 1;
+        width: 100%;
+        padding: 2.5rem 0.25rem 0.25rem 0;
+
+        .title-header {
+          i {
+            margin-left: -3px;
+            margin-right: 10px;
+            margin-bottom: 0.45rem;
+            color: $portalDarkYellow ;
+            display: inline-block;
+            font-size: 25px;
+            animation: rot-opac-clws 0.75s 1 ease-in-out forwards;
+          }
+
+          p {
+            color: $portalDarkYellow ;
+            font-size: 0.875rem;
+            white-space: pre-wrap;
+            font-weight: 400;
+            margin-bottom: 0;
+            letter-spacing: 0.01rem;
+          }
+        }
+      }
+
+      .message {
+        p {
+          color: red;
+          white-space: pre-wrap;
+          font-weight: 200;
+          font-size: 0.8rem;
+        }
+      }
+
+      .instruction{
+        margin: 50px 10px;
+      }
+
+      form {
+
+        input {
+          color: $portalDarkYellow  !important;
+          caret-color: $portalDarkYellow  !important;
+          background-color: transparent !important;
+          width: 100% !important;
+          height: calc(1.5em + 0.75rem + 1px);
+          padding: 0;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 1.5;
+          background-clip: padding-box;
+          border-top: none;
+          border-right: none;
+          border-left: none;
+          border-bottom: 2px solid rgba($portalDarkYellow, 0.2);
+        }
+
+        input:focus,
+        input:active {
+          background-color: transparent !important;
+        }
+        .to-login,
+        .to-register {
+          padding: 0 1.9rem 1.2rem ;
+          p {
+            cursor: pointer;
+            color: rgba($portalDarkYellow, 0.9);
+            font-weight: 300;
+            font-size: 0.8rem;
+
+          i {
+            color: lighten(red, 15%);
+            font-size: 0.55rem;
+            font-weight: 200;
+            margin-right: 0.35rem;
+          }
+        }
+
+          &:hover {
+            p {
+              color: rgba($portalYellow, 0.7);
+            }
+          }
+        }
+        .password {
+          i {
+            cursor: pointer;
+            position: absolute;
+            right: 45px;
+            color: rgba($portalDarkYellow, 0.3);
+            font-size: 0.9rem;
+          }
+        }
+
+        .confirm-password {
+          p {
+            color: rgba($portalDarkYellow, 0.9);
+            float: right;
+            font-style: italic;
+            font-weight: 200;
+            font-size: 0.8rem;
+          }
+        }
+        .name{
+          p {
+            color: rgba($portalDarkYellow, 0.9);
+            float: right;
+            font-style: italic;
+            font-weight: 200;
+            font-size: 0.8rem;
+          }
+        }
+        .button {
+          filter: none;
+          position: relative;
+          cursor: pointer;
+          border: 1px solid rgba(white, 0.12);
+          background-color: rgba($portalYellow, 0.30);
+          width: 100%;
+          height: 35px;
+          border-radius: 5px;
+          //label on button
+          font-size: 0.925rem;
+          font-weight: 900;
+          color: rgba($portalDarkYellow, 0.9);
+          float: left;
+          padding: 1%;
+          //padding: 0.375rem 0.75rem;
+
+
+          i {
+            color: rgba($portalDarkYellow, 0.4);
+            font-size: 0.75rem;
+            position: absolute;
+            right: 11px;
+            top: 11px;
+            }
+
+          &:hover {
+            background: linear-gradient(45deg, transparent 10%, rgba($portalDarkYellow, 0.75) 90%, transparent 100%);
+
+            i {
+              color: rgba($portalDarkYellow, 0.85);
+            }
+          }
+        }
+
+        input::placeholder {
+          color: rgba($portalDarkYellow, 0.45);
+          font-size: 0.85rem;
+        }
+
+        input:focus::placeholder {
+          color: rgba($portalDarkYellow, 0.65);
+        }
+      }
+    }
+  }
+  .main-login{
+    .login-form{
+      width: 90%;
+      height: 90%;
+      margin: 5%;
+      padding: 2.3rem 1.9rem 1.2rem;
+
+      .forgot-password {
+        p {
+          color: rgba($portalDarkYellow, 0.9);
+          float: right;
+          font-style: italic;
+          font-weight: 200;
+          font-size: 0.8rem;
+        }
+      }
+      .to-login,
+        .to-register {
+          p {
+            float: right;
+          }
+          &:hover {
+            p {
+              color: rgba($portalYellow, 0.7);
+            }
+          }
+        }
+    }
+  }
+  .main-loss-password {
+    padding-top: 5%;
+    .to-login {
+        p {
+          cursor: pointer;
+          float: left;
+          margin-left: calc(20%);
+          color: rgba($portalDarkYellow, 0.9);
+          font-weight: 300;
+          font-size: 0.8rem;
+        }
+        i {
+          color: lighten(red, 15%);
+          font-size: 0.55rem;
+          font-weight: 200;
+          margin-right: 0.35rem;
+        }
+         &:hover {
+            p {
+              color: rgba($portalYellow, 0.7);
+            }
+          }
+      }
+    .lost-password-form{
+      border: 2px solid $portalYellow;
+      background: white;
+      border-radius: 9px;
+      width: 80%;
+      height: 80%;
+      margin: 0 10% 10% 10%;
+      padding: 0 1.9rem 1.2rem;
+
+    }
+  }
+  .main-register{
+    .to-login{
+      z-index: 1;
+      padding: 0 1.9rem 1.2rem ;
+      p {
+        cursor: pointer;
+        float: left;
+        margin-left: calc(20%);
+        color: rgba($portalDarkYellow, 0.9);
+        font-weight: 300;
+        font-size: 0.8rem;
+      }
+      i {
+        color: lighten(red, 15%);
+        font-size: 0.55rem;
+        font-weight: 200;
+        margin-right: 0.35rem;
+      }
+    }
+    .register-form{
+      width: 90%;
+      height: 80%;
+      margin: 0 5% 5% 5%;
+      padding: 0 1.9rem 1rem;
+      .copy-block {
+        padding: 0 0.25rem 0.25rem 0 !important;
+      }
+    }
+  }
+
+
+}
+
+.btnWarningNav{
+  //width: 120px;
+  background-color: #FA9614 !important;
+  cursor: pointer;
+  border: none;
+}
+
+.btnSuccessNav{
+  //width: 120px;
+  background-color: #2E9D14;
+  cursor: pointer;
+  border: none;
+}
+
+button .btnSuccessNav :hover {
+  color: #2E9D14  !important;
+}
+.btnDefaultNav{
+  //width: 120px;
+  background-color: grey;
+  cursor: pointer;
+  border: none;
+}
+
+.p-inputnumber, .p-inputnumber {
+  display: inline-flex;
+  width: 100%;
+}
+
+.p-element .p-inputwrapper {
+  width: 100%;
+}
+
+.p-dropdown .p-component .p-dropdown-clearable{
+  width: 100%;
+}
+
+.p-fileupload .p-fileupload-buttonbar .p-button {
+  margin-right: 0.5rem;
+  background: #583A14!important;
+}
+
+.iti {
+	display: block !important;
+	margin-bottom: 20px;
+}
+
+.iti .dropdown-menu.country-dropdown {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-color: #c7cace;
+	margin-top: -1px;
+}
+
+.iti .iti__country-list {
+	box-shadow: none;
+	font-size: 14px;
+	margin-left: 0;
+	width: 244px;
+	max-height: 170px;
+}
+
+.iti__flag-container.open + input {
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+.iti .search-container input {
+	font-size: 14px;
+	border-color: #c7cace;
+	border-radius: 0;
+	padding: 5px 10px;
+}
+
+.iti .search-container input:focus {
+	outline: none;
+}
+
+@media screen and (max-width: 479px) {
+	.iti .iti__country-list {
+		width: 88.3vw;
+	}
+}
+
+ngx-intl-tel-input input {
+	height: 44px;
+	margin-bottom: 20px;
+	padding: 10px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #c7cace;
+	border-radius: 4px;
+	font-size: 18px;
+}
+
+ngx-intl-tel-input.ng-invalid.ng-touched input {
+	border: 1px solid #c0392b;
+}
+
+ngx-intl-tel-input input:hover {
+	box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.24);
+}
+
+ngx-intl-tel-input input:focus {
+	outline: none !important;
+	border-color: #3498db;
+	box-shadow: 0 0 0 0 #000;
+}
+
+ngx-intl-tel-input input::-webkit-input-placeholder {
+	color: #bac2c7;
+}
+
+ngx-intl-tel-input input:-ms-input-placeholder {
+	color: #bac2c7;
+}
+
+ngx-intl-tel-input input::-ms-input-placeholder {
+	color: #bac2c7;
+}
+
+ngx-intl-tel-input input::placeholder {
+	color: #bac2c7;
+}
+
+ngx-intl-tel-input input[disabled] {
+	background-color: #e5eaf1;
+}
+
+.btn-action{
+  width: 90%;
+  text-align: center
+}
+
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+//@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
